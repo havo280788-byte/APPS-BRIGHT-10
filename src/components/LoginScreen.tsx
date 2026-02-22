@@ -56,24 +56,24 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
       >
         {/* Logo / Icon */}
         <div className="flex justify-center mb-6">
-          <div className="w-20 h-20 rounded-full bg-[#1E293B] border-4 border-[#22D3EE]/30 flex items-center justify-center text-4xl shadow-lg shadow-[#22D3EE]/20">
-            🤖
+          <div className="w-20 h-20 rounded-full bg-white border-4 border-[#3B82F6]/30 flex items-center justify-center text-4xl shadow-lg shadow-[#3B82F6]/20">
+            📱
           </div>
         </div>
 
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-2xl p-8 relative overflow-hidden">
           {/* Accent bar at top */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#22D3EE] to-[#3B82F6]" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6]" />
 
           {/* Titles */}
           <h1 className="text-3xl font-black text-[#0F172A] text-center tracking-tight uppercase">
-            ENGLISH 12
+            ENGLISH 10
           </h1>
           <h2 className="text-xl font-bold text-[#334155] text-center mt-1 uppercase tracking-wide">
-            Artificial Intelligence
+            New Ways to Learn
           </h2>
-          <p className="text-[#22D3EE] text-center mt-2 font-medium text-sm">
+          <p className="text-[#3B82F6] text-center mt-2 font-medium text-sm">
             Reading Challenge
           </p>
 
@@ -95,7 +95,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#22D3EE]/50 focus:border-[#22D3EE] transition-all"
+                  className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]/50 focus:border-[#3B82F6] transition-all"
                   placeholder="Enter your name"
                 />
               </div>
@@ -112,7 +112,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
                   type="text"
                   value={className}
                   onChange={(e) => setClassName(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#22D3EE]/50 focus:border-[#22D3EE] transition-all"
+                  className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]/50 focus:border-[#3B82F6] transition-all"
                   placeholder="e.g. 11A1"
                 />
               </div>
@@ -125,7 +125,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full py-4 bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-bold rounded-xl shadow-lg shadow-[#6366F1]/30 text-lg uppercase tracking-wider flex items-center justify-center gap-3 hover:shadow-xl hover:shadow-[#6366F1]/40 transition-shadow"
+              className="w-full py-4 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-bold rounded-xl shadow-lg shadow-[#3B82F6]/30 text-lg uppercase tracking-wider flex items-center justify-center gap-3 hover:shadow-xl hover:shadow-[#3B82F6]/40 transition-shadow"
             >
               START CHALLENGE
               <span className="text-xl">▶</span>
@@ -187,7 +187,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
                 value={pin}
                 onChange={(e) => setPin(e.target.value)}
                 onKeyDown={handlePinKeyDown}
-                className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-center text-2xl tracking-[0.5em] font-mono text-[#0F172A] placeholder-[#CBD5E1] focus:outline-none focus:ring-2 focus:ring-[#22D3EE]/50 focus:border-[#22D3EE] transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-center text-2xl tracking-[0.5em] font-mono text-[#0F172A] placeholder-[#CBD5E1] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]/50 focus:border-[#3B82F6] transition-all"
                 placeholder="••••"
                 maxLength={6}
                 autoFocus

@@ -130,9 +130,9 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
             return `${base} bg-[#DC2626] border-[#DC2626] text-white`;
         }
         if (selected === option) {
-            return `${base} bg-[#22D3EE]/10 border-[#22D3EE] text-[#0F172A] shadow-md ring-2 ring-[#22D3EE]/30`;
+            return `${base} bg-[#DBEAFE] border-[#3B82F6] text-[#0F172A] shadow-md ring-2 ring-[#3B82F6]/30`;
         }
-        return `${base} bg-[#F9FAFB] border-[#E2E8F0] text-[#334155] hover:bg-[#E0F2FE] hover:border-[#22D3EE]/40`;
+        return `${base} bg-[#F9FAFB] border-[#CBD5E1] text-[#334155] hover:bg-[#DBEAFE] hover:border-[#3B82F6]/40`;
     };
 
     const getOptionBadgeStyle = (option: string, idx: number) => {
@@ -142,7 +142,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
             return `${base} bg-white/30 text-white`;
         }
         if (selected === option) {
-            return `${base} bg-[#22D3EE] text-white`;
+            return `${base} bg-[#3B82F6] text-white`;
         }
         if (feedback === 'correct' && option === question.answer) {
             return `${base} bg-white/30 text-white`;
@@ -160,7 +160,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
 
                 {/* LEFT: Reading Passage (40%) */}
                 <div className="w-full md:w-[40%] flex-shrink-0">
-                    <div className="bg-white rounded-2xl shadow-md border border-[#E2E8F0] overflow-hidden h-full flex flex-col">
+                    <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(59,130,246,0.15)] border border-[#CBD5E1] overflow-hidden h-full flex flex-col">
                         {/* Reading Header */}
                         <div className="px-5 py-3 border-b border-[#F1F5F9] flex items-center gap-2">
                             <span className="text-base">📖</span>
@@ -178,7 +178,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                             style={{ maxHeight: '60vh', cursor: mode === 'teacher' && highlightMode ? 'text' : 'default' }}
                             onMouseUp={handleTextSelect}
                         >
-                            <h3 className="text-sm font-bold text-[#0F172A] mb-3 uppercase tracking-wide">AI All Around Us</h3>
+                            <h3 className="text-sm font-bold text-[#0F172A] mb-3 uppercase tracking-wide">Apps of the Future</h3>
                             {renderPassage()}
                         </div>
                     </div>
@@ -186,10 +186,10 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
 
                 {/* RIGHT: Question (60%) */}
                 <div className="w-full md:w-[60%]">
-                    <div className="bg-white rounded-2xl shadow-md border border-[#E2E8F0] overflow-hidden flex flex-col">
+                    <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(59,130,246,0.15)] border border-[#CBD5E1] overflow-hidden flex flex-col">
                         {/* Question Header */}
                         <div className="px-5 py-3 border-b border-[#F1F5F9] flex items-center justify-between">
-                            <span className="text-xs font-bold text-[#22D3EE] bg-[#22D3EE]/10 px-3 py-1 rounded-full uppercase tracking-wider">
+                            <span className="text-xs font-bold text-[#3B82F6] bg-[#3B82F6]/10 px-3 py-1 rounded-full uppercase tracking-wider">
                                 Stage {stageNum}
                             </span>
                             <div className="flex items-center gap-2">

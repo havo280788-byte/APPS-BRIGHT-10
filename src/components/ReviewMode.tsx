@@ -168,10 +168,10 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                             <div className="px-5 py-3 border-b border-[#F1F5F9] flex items-center gap-2">
                                 <span className="text-base">📖</span>
                                 <span className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Reading Passage</span>
-                                <span className="ml-auto text-[10px] text-[#22D3EE] bg-[#22D3EE]/10 px-2 py-0.5 rounded-full font-bold">Evidence highlighted</span>
+                                <span className="ml-auto text-[10px] text-[#3B82F6] bg-[#3B82F6]/10 px-2 py-0.5 rounded-full font-bold">Evidence highlighted</span>
                             </div>
                             <div className="p-5 overflow-y-auto reading-scroll flex-1" style={{ maxHeight: '65vh' }}>
-                                <h3 className="text-sm font-bold text-[#0F172A] mb-3 uppercase tracking-wide">AI All Around Us</h3>
+                                <h3 className="text-sm font-bold text-[#0F172A] mb-3 uppercase tracking-wide">Apps of the Future</h3>
                                 {Array.isArray(highlightedParagraphs) ? (
                                     highlightedParagraphs.map((p, i) => (
                                         <p
@@ -199,7 +199,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                         <div className="bg-white rounded-2xl shadow-md border border-[#E2E8F0] overflow-hidden">
                             {/* Question header */}
                             <div className="px-5 py-3 border-b border-[#F1F5F9] flex items-center justify-between">
-                                <span className="text-xs font-bold text-[#22D3EE] bg-[#22D3EE]/10 px-3 py-1 rounded-full uppercase tracking-wider">
+                                <span className="text-xs font-bold text-[#3B82F6] bg-[#3B82F6]/10 px-3 py-1 rounded-full uppercase tracking-wider">
                                     Stage {currentIndex + 1}
                                 </span>
                                 <span className={`text-xs font-bold px-3 py-1 rounded-full ${answer.isCorrect ? 'bg-[#22C55E]/10 text-[#22C55E]' : 'bg-[#DC2626]/10 text-[#DC2626]'

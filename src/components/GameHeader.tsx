@@ -37,16 +37,16 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
     }, [currentStage]);
 
     return (
-        <div className="w-full bg-[#0F172A] text-white px-4 py-3 md:px-6 md:py-4 shadow-2xl flex flex-col gap-3">
+        <div className="w-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white px-4 py-3 md:px-6 md:py-4 shadow-2xl flex flex-col gap-3">
             {/* Top Row: Title + Timer/Teacher badge */}
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                    <span className="text-2xl md:text-3xl">🤖</span>
+                    <span className="text-2xl md:text-3xl">📱</span>
                     <div>
                         <h1 className="text-sm md:text-lg font-black uppercase tracking-tight text-white leading-tight">
-                            <span className="text-[#22D3EE]">AI</span> – English 12
+                            <span className="text-white font-black">English 10</span> – New Ways to Learn
                         </h1>
-                        <p className="text-[10px] md:text-xs text-[#94A3B8] uppercase tracking-widest hidden md:block">
+                        <p className="text-[10px] md:text-xs text-white/70 uppercase tracking-widest hidden md:block">
                             Reading Challenge
                         </p>
                     </div>
@@ -55,8 +55,8 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                 <div className="flex items-center gap-2">
                     {mode === 'student' ? (
                         /* Student: Timer */
-                        <div className="flex items-center gap-2 bg-[#1E293B] px-3 py-1.5 rounded-full border border-[#334155]">
-                            <span className="text-base text-[#22D3EE]">⏱</span>
+                        <div className="flex items-center gap-2 bg-white/20 px-3 py-1.5 rounded-full border border-white/30">
+                            <span className="text-base text-white">⏱</span>
                             <span className="font-mono text-lg md:text-xl font-bold tracking-wider">{formatTime(timeLeft)}</span>
                         </div>
                     ) : (
@@ -93,9 +93,9 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
             {/* Progress Bar Container */}
             <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
                 {/* Connection Line */}
-                <div className="absolute top-1/2 left-0 w-full h-0.5 bg-[#1E293B] -translate-y-1/2" />
+                <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/20 -translate-y-1/2" />
                 <motion.div
-                    className="absolute top-1/2 left-0 h-0.5 bg-[#22D3EE] -translate-y-1/2"
+                    className="absolute top-1/2 left-0 h-0.5 bg-white -translate-y-1/2"
                     initial={{ width: '0%' }}
                     animate={{ width: `${(currentStage / (STAGES.length - 1)) * 100}%` }}
                     transition={{ duration: 0.5 }}
@@ -120,9 +120,9 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                 <div
                                     className={`
                                         w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center text-sm md:text-lg transition-all duration-300 border-2
-                                        ${isActive ? 'bg-[#22D3EE] border-white icon-glow z-20' :
-                                            isCompleted ? 'bg-[#334155] border-[#22D3EE]/40 opacity-90' :
-                                                'bg-[#1E293B] border-[#334155] opacity-50'}
+                                        ${isActive ? 'bg-white border-white icon-glow z-20 text-[#3B82F6]' :
+                                            isCompleted ? 'bg-white/30 border-white/40 opacity-90' :
+                                                'bg-white/10 border-white/20 opacity-50'}
                                     `}
                                 >
                                     {stage.icon}

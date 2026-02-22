@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDd8ykwhehPho32DQZcIQIag5fUZePRPuQ",
-    authDomain: "gameartificial-intelligence.firebaseapp.com",
-    projectId: "gameartificial-intelligence",
-    storageBucket: "gameartificial-intelligence.firebasestorage.app",
-    messagingSenderId: "605391258890",
-    appId: "1:605391258890:web:ab600115dcf0aef38de6f3"
+    apiKey: "AIzaSyBcMWInwvTJVXuwkIkK5eh9l88HoyHH2ck",
+    authDomain: "apps--bright-10.firebaseapp.com",
+    projectId: "apps--bright-10",
+    storageBucket: "apps--bright-10.firebasestorage.app",
+    messagingSenderId: "949452524414",
+    appId: "1:949452524414:web:b85400b95fc697fb3d012f"
 };
 
 const app = initializeApp(firebaseConfig);

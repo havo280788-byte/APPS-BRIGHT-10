@@ -13,113 +13,108 @@ export interface Stage {
     icon: string;
 }
 
-export const READING_PASSAGE = `Artificial intelligence, or AI, is the development of computer systems that can carry out tasks that normally require human intelligence, such as interpretation and decision-making. Using complex mathematical rules called algorithms, AI enables machines to process large amounts of information and imitate real human brain functions. The amazing accuracy and efficiency of AI have resulted in its widespread use in a variety of areas, and there are already a number of different applications for the technology.
+export const READING_PASSAGE = `APPS OF THE FUTURE
 
-Nowadays, AI-powered robots are becoming increasingly common. Industrial robots, for instance, are widely used to perform tasks related to manufacturing like painting and product assembly. Experts have said that these robots are designed to work with a high level of accuracy and speed, which improves productivity in factories. There are also AI-equipped rescue robots that can be used to help save lives in emergency situations. These machines can make intelligent choices to avoid obstacles in dangerous environments. This makes them perfect for use in disaster zones.
+How many times a day do you tap the icon of your favourite social media site or play a game on your smartphone? When your parents were young, apps didn't even exist, but now we can't imagine our lives without them. So what will apps be like in the future?
 
-At the same time, AI is also being used to power gadgets that help us in our daily lives. Private digital assistants, for example, can understand and respond to users' voice commands, which makes them useful for simple tasks like looking up information online and scheduling appointments. AI-powered navigation apps can use real-time data processing to help us find the quickest and most efficient routes to our destinations when we are travelling. A diet tracker is another type of AI application that can provide users with nutrition recommendations based on their specific needs. In this way, AI is changing our routines and personal habits.
+A new way to learn
+Apps are being used in education. They are useful because students can use them anytime, anywhere and on any device. They present information in bite-sized chunks, which people find easy to understand and remember. Lessons can also be turned into games, making learning fun! Soon, apps will be the new normal.
 
-AI is a rapidly developing technology that is not only transforming industries but also changing our daily lives and doing tasks that used to be considered impossible for machines. In the years to come, we can surely expect more innovative and amazing AI applications.`;
+Augmented Reality (AR)
+Inside AR apps, the real world is mixed with the digital one. These apps are downloaded and teachers use them to make learning more interesting. These apps capture students' attention and help them concentrate and interact with their lessons. Students can experience the material and become more interested in the subject. At the same time, they can explore the topic taught at their own pace.
+
+In the future, apps will be able to do a lot of things for us. Some people think this will have a lot of benefits, others think it will make us lazy or that we will forget how to do things for ourselves. Whatever your opinion on modern technology, one thing is certain: the apps of the future will change our lives.`;
 
 export const STAGES: Stage[] = [
-    { id: 1, name: 'AI Basics', icon: '🔍' },
-    { id: 2, name: 'Learning', icon: '🧠' },
-    { id: 3, name: 'Data', icon: '📊' },
-    { id: 4, name: 'Vision', icon: '👁' },
-    { id: 5, name: 'Voice', icon: '🎤' },
-    { id: 6, name: 'Tools', icon: '⚙️' },
-    { id: 7, name: 'Ethics', icon: '⚖️' },
-    { id: 8, name: 'Education', icon: '🎓' },
-    { id: 9, name: 'Careers', icon: '💼' },
+    { id: 1, name: 'Launch', icon: '\u{1F680}' },
+    { id: 2, name: 'Explore', icon: '\u{1F30D}' },
+    { id: 3, name: 'Power-Up', icon: '\u{1F3AE}' },
+    { id: 4, name: 'Unlock', icon: '\u{1F9E9}' },
+    { id: 5, name: 'Focus Mode', icon: '\u{1F3AF}' },
+    { id: 6, name: 'Upgrade', icon: '\u{1F9E0}' },
+    { id: 7, name: 'Challenge', icon: '\u2696\uFE0F' },
+    { id: 8, name: 'Final Boss', icon: '\u{1F3C6}' },
 ];
 
 export const QUESTIONS: Question[] = [
-    // Stage 1 - MCQ
+    // Stage 1 - TFD (Doesn't say)
     {
         id: 'q1',
-        type: 'mcq',
-        question: 'According to paragraph 1, what can AI do?',
-        options: [
-            'It can perform tasks that require it to make choices.',
-            'It can produce complex mathematical rules.',
-            'It can interpret real human brain functions.',
-            'It can create applications for different technologies.'
-        ],
-        answer: 'It can perform tasks that require it to make choices.'
+        type: 'tfd',
+        question: 'The first apps appeared over 50 years ago.',
+        options: ['True', 'False', "Doesn't say"],
+        answer: "Doesn't say"
     },
-    // Stage 2 - TFD
+    // Stage 2 - TFD (False)
     {
         id: 'q2',
         type: 'tfd',
-        question: 'AI is widely used because it can process large amounts of data and imitate human brain functions.',
-        options: ['True', 'False'],
-        answer: 'True'
-    },
-    // Stage 3 - TFD
-    {
-        id: 'q3',
-        type: 'tfd',
-        question: 'Industrial robots are mainly designed to help people with their daily household chores.',
-        options: ['True', 'False'],
+        question: 'You can only use educational apps on smartphones.',
+        options: ['True', 'False', "Doesn't say"],
         answer: 'False'
     },
-    // Stage 4 - TFD
+    // Stage 3 - MCQ
+    {
+        id: 'q3',
+        type: 'mcq',
+        question: 'How do educational apps present information?',
+        options: [
+            'In long academic texts',
+            'Through live video lessons',
+            'In bite-sized chunks',
+            'In printed worksheets'
+        ],
+        answer: 'In bite-sized chunks'
+    },
+    // Stage 4 - TFD (True)
     {
         id: 'q4',
         type: 'tfd',
-        question: 'The high speed and accuracy of AI-powered robots help to improve productivity in factories.',
-        options: ['True', 'False'],
+        question: 'Some apps already use augmented reality.',
+        options: ['True', 'False', "Doesn't say"],
         answer: 'True'
     },
-    // Stage 5 - TFD
+    // Stage 5 - TFD (False)
     {
         id: 'q5',
         type: 'tfd',
-        question: 'Rescue robots are unable to make their own choices when they meet obstacles.',
-        options: ['True', 'False'],
+        question: 'AR apps make lessons boring.',
+        options: ['True', 'False', "Doesn't say"],
         answer: 'False'
     },
-    // Stage 6 - MCQ
+    // Stage 6 - TFD (False)
     {
         id: 'q6',
-        type: 'mcq',
-        question: 'What does the word "them" in paragraph 2 refer to?',
-        options: ['choices', 'machines', 'obstacles', 'environments'],
-        answer: 'machines'
+        type: 'tfd',
+        question: 'Everyone believes apps will make us lazy.',
+        options: ['True', 'False', "Doesn't say"],
+        answer: 'False'
     },
-    // Stage 7 - TFD
+    // Stage 7 - MCQ
     {
         id: 'q7',
-        type: 'tfd',
-        question: 'AI gadgets like digital assistants, navigation apps, and diet trackers are changing our personal habits.',
-        options: ['True', 'False'],
-        answer: 'True'
+        type: 'mcq',
+        question: 'According to the text, what is certain about the apps of the future?',
+        options: [
+            'They will completely replace teachers.',
+            'They will disappear in the future.',
+            'They will change our lives.',
+            'They will make everyone lazy.'
+        ],
+        answer: 'They will change our lives.'
     },
     // Stage 8 - MCQ
     {
         id: 'q8',
         type: 'mcq',
-        question: 'According to paragraph 3, which of the following is TRUE?',
+        question: 'The author\'s purpose is to …',
         options: [
-            'Navigation apps can recognise human speech.',
-            'Diet tracker apps can help users to search for different sources of information.',
-            'Digital assistant apps can provide specific, personalised advice for individual users.',
-            'Navigation apps can process and update information to provide the best directions.'
+            'give us information about how apps are developing.',
+            'explain predictions about future technology in education.',
+            'inform us how to use the apps more efficiently.',
+            'give us tips on choosing apps.'
         ],
-        answer: 'Navigation apps can process and update information to provide the best directions.'
-    },
-    // Stage 9 - MCQ
-    {
-        id: 'q9',
-        type: 'mcq',
-        question: 'What can be inferred from the last paragraph of the text?',
-        options: [
-            'There is a limited number of AI applications in the present day.',
-            'There will be more AI applications in daily life than in industries.',
-            'Applications that make use of AI are being developed at a rapid pace.',
-            'The next applications for AI technology are easy to predict.'
-        ],
-        answer: 'Applications that make use of AI are being developed at a rapid pace.'
+        answer: 'give us information about how apps are developing.'
     }
 ];
 

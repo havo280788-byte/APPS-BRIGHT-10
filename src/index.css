@@ -18,14 +18,14 @@
 }
 
 .animated-gradient-bg {
-  background: linear-gradient(135deg, #0F172A, #1E293B, #334155, #1E293B, #0F172A);
+  background: linear-gradient(135deg, #3B82F6, #6366F1, #8B5CF6, #6366F1, #3B82F6);
   background-size: 400% 400%;
   animation: gradientShift 30s ease infinite;
 }
 
 /* Active icon glow */
 .icon-glow {
-  box-shadow: 0 0 12px rgba(34, 211, 238, 0.7), 0 0 24px rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.7), 0 0 24px rgba(59, 130, 246, 0.3);
 }
 
 /* Hide scrollbar but keep scroll functionality */

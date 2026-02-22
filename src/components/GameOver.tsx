@@ -57,7 +57,7 @@ export default function GameOver({ score, totalQuestions, onRestart, onLeaderboa
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={onReview}
-                        className="w-full py-3.5 bg-[#22D3EE] text-white font-bold rounded-xl shadow-lg text-sm uppercase tracking-widest hover:bg-[#06B6D4] transition-colors"
+                        className="w-full py-3.5 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-bold rounded-xl shadow-lg text-sm uppercase tracking-widest hover:from-[#2563EB] hover:to-[#7C3AED] transition-colors"
                     >
                         📖 Review Answers
                     </motion.button>

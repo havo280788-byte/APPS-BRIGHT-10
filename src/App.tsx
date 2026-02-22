@@ -146,7 +146,7 @@ export default function App() {
   const elapsedSeconds = (8 * 60) - timeLeft;
 
   return (
-    <div className="font-sans antialiased text-slate-900 bg-[#0F172A] min-h-screen">
+    <div className="font-sans antialiased text-slate-900 bg-[#F8FAFF] min-h-screen">
       <AnimatePresence mode="wait">
         {screen === 'login' && (
           <motion.div key="login" exit={{ opacity: 0 }}>
@@ -155,7 +155,7 @@ export default function App() {
         )}
 
         {screen === 'game' && (
-          <motion.div key="game" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col min-h-screen bg-[#0F172A]">
+          <motion.div key="game" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col min-h-screen bg-[#EEF2FF]">
             <GameHeader
               currentStage={currentStage}
               timeLeft={timeLeft}

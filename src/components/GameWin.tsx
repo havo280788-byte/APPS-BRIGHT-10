@@ -26,14 +26,14 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                 angle: 60,
                 spread: 55,
                 origin: { x: 0 },
-                colors: ['#22D3EE', '#22C55E', '#F59E0B']
+                colors: ['#3B82F6', '#8B5CF6', '#F59E0B']
             });
             confetti({
                 particleCount: 5,
                 angle: 120,
                 spread: 55,
                 origin: { x: 1 },
-                colors: ['#22D3EE', '#22C55E', '#F59E0B']
+                colors: ['#3B82F6', '#8B5CF6', '#F59E0B']
             });
 
             if (Date.now() < end) {
@@ -52,10 +52,10 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
     const accuracy = Math.round((score / totalQuestions) * 100);
 
     const getBadge = () => {
-        if (accuracy >= 90) return { label: 'AI Reading Pro', icon: '🏅', color: 'from-yellow-400 to-amber-500' };
-        if (accuracy >= 80) return { label: 'AI Analyst', icon: '📊', color: 'from-cyan-400 to-blue-500' };
-        if (accuracy >= 60) return { label: 'AI Explorer', icon: '🔍', color: 'from-violet-400 to-purple-500' };
-        return { label: 'AI Beginner', icon: '🌱', color: 'from-green-400 to-emerald-500' };
+        if (accuracy >= 90) return { label: 'Digital Quest Champion', icon: '👑', color: 'from-yellow-400 to-amber-500' };
+        if (accuracy >= 80) return { label: 'Quest Master', icon: '🏆', color: 'from-cyan-400 to-blue-500' };
+        if (accuracy >= 60) return { label: 'Quest Explorer', icon: '🔍', color: 'from-violet-400 to-purple-500' };
+        return { label: 'Quest Starter', icon: '🌱', color: 'from-green-400 to-emerald-500' };
     };
 
     const badge = getBadge();
@@ -68,7 +68,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                 className="max-w-lg w-full bg-white rounded-2xl shadow-2xl p-8 md:p-10 relative overflow-hidden"
             >
                 {/* Accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#22D3EE] to-[#22C55E]" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6]" />
 
                 {/* Icon */}
                 <motion.div
@@ -129,7 +129,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={onReview}
-                                className="w-full py-3.5 bg-[#22D3EE] text-white font-bold rounded-xl shadow-lg text-sm uppercase tracking-widest hover:bg-[#06B6D4] transition-colors"
+                                className="w-full py-3.5 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-bold rounded-xl shadow-lg text-sm uppercase tracking-widest hover:from-[#2563EB] hover:to-[#7C3AED] transition-colors"
                             >
                                 📖 Review Answers
                             </motion.button>

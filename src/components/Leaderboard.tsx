@@ -109,7 +109,7 @@ export default function Leaderboard({ onBack }: { onBack: () => void }) {
         if (!analytics || analytics.questionRates.length === 0) return [];
 
         const skills = [
-            { name: 'Fact Retrieval', icon: '📋', questions: ['q1', 'q4'], color: '#22D3EE' },
+            { name: 'Fact Retrieval', icon: '📋', questions: ['q1', 'q4'], color: '#3B82F6' },
             { name: 'Reference (Pronouns)', icon: '🔗', questions: ['q6'], color: '#8B5CF6' },
             { name: 'Inference', icon: '💡', questions: ['q9'], color: '#F59E0B' },
             { name: 'Detail / Scanning', icon: '🔍', questions: ['q2', 'q3', 'q5', 'q7', 'q8'], color: '#22C55E' },
@@ -151,21 +151,21 @@ export default function Leaderboard({ onBack }: { onBack: () => void }) {
                             <span className="text-3xl">🏆</span>
                             <div>
                                 <h1 className="text-xl font-black text-white uppercase tracking-wider">Leaderboard</h1>
-                                <p className="text-xs text-[#94A3B8]">Top 10 • AI Reading Challenge</p>
+                                <p className="text-xs text-[#94A3B8]">Top 10 • Apps Reading Challenge</p>
                             </div>
                         </div>
 
                         <div className="flex bg-[#1E293B] rounded-lg p-1 border border-[#334155]">
                             <button
                                 onClick={() => setViewMode('student')}
-                                className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${viewMode === 'student' ? 'bg-[#22D3EE] text-white' : 'text-[#94A3B8] hover:text-white'
+                                className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${viewMode === 'student' ? 'bg-[#3B82F6] text-white' : 'text-[#94A3B8] hover:text-white'
                                     }`}
                             >
                                 🎓 Student
                             </button>
                             <button
                                 onClick={() => setViewMode('teacher')}
-                                className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${viewMode === 'teacher' ? 'bg-[#22D3EE] text-white' : 'text-[#94A3B8] hover:text-white'
+                                className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${viewMode === 'teacher' ? 'bg-[#3B82F6] text-white' : 'text-[#94A3B8] hover:text-white'
                                     }`}
                             >
                                 👩‍🏫 Teacher
@@ -210,7 +210,7 @@ export default function Leaderboard({ onBack }: { onBack: () => void }) {
                                         </div>
 
                                         <div className="flex items-center gap-8">
-                                            <div className="w-14 text-center font-bold text-[#22D3EE] text-sm">
+                                            <div className="w-14 text-center font-bold text-[#3B82F6] text-sm">
                                                 {entry.score ?? '—'}/{entry.totalQuestions ?? 9}
                                             </div>
                                             <div className="w-14 text-center font-mono font-bold text-[#0F172A] text-sm">
@@ -257,7 +257,7 @@ export default function Leaderboard({ onBack }: { onBack: () => void }) {
                                 </div>
                                 <div className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0] text-center">
                                     <div className="text-[10px] text-[#94A3B8] uppercase font-bold tracking-wider mb-1">Avg Accuracy</div>
-                                    <div className="text-2xl font-black text-[#22D3EE]">{analytics.avgAccuracy}%</div>
+                                    <div className="text-2xl font-black text-[#3B82F6]">{analytics.avgAccuracy}%</div>
                                 </div>
                                 <div className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0] text-center">
                                     <div className="text-[10px] text-[#94A3B8] uppercase font-bold tracking-wider mb-1">Fastest (≥80%)</div>
@@ -310,7 +310,7 @@ export default function Leaderboard({ onBack }: { onBack: () => void }) {
                         {/* Panel 3: Skills Breakdown */}
                         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                             <div className="px-5 py-3 border-b border-[#F1F5F9]">
-                                <h2 className="text-xs font-bold text-[#64748B] uppercase tracking-wider">🧠 Skills Breakdown (AI Reading)</h2>
+                                <h2 className="text-xs font-bold text-[#64748B] uppercase tracking-wider">🧠 Skills Breakdown (Apps Reading)</h2>
                             </div>
                             <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-3">
                                 {skillsBreakdown.map((skill) => (
