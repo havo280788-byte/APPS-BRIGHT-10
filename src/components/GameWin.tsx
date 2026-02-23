@@ -163,16 +163,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                         onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(0,212,255,0.25)'; el.style.boxShadow = 'none'; }}
                     >🔍 Review Answers</motion.button>
 
-                    {/* Tertiary: Restart */}
-                    <button onClick={onRestart} style={{
-                        width: '100%', padding: '11px', background: 'transparent', border: 'none',
-                        color: 'rgba(148,163,184,0.35)', fontSize: '12px', fontWeight: 600,
-                        letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer',
-                        fontFamily: 'inherit', transition: 'color 0.2s',
-                    }}
-                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(148,163,184,0.65)'; }}
-                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(148,163,184,0.35)'; }}
-                    >↺ Play Again</button>
+
                 </div>
             </motion.div>
         </div>
