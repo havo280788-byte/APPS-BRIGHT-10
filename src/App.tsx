@@ -211,7 +211,12 @@ export default function App() {
 
         {screen === 'leaderboard' && (
           <motion.div key="leaderboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Leaderboard onBack={() => setScreen(mode === 'teacher' ? 'game' : 'login')} />
+            <Leaderboard
+              onBack={() => setScreen(mode === 'teacher' ? 'game' : 'win')}
+              onReview={() => setScreen('review')}
+              playerName={mode === 'student' ? player.name : undefined}
+              playerClass={mode === 'student' ? player.className : undefined}
+            />
           </motion.div>
         )}
 
@@ -220,7 +225,7 @@ export default function App() {
             <ReviewMode
               answers={answers}
               questions={questions}
-              onBack={() => setScreen(mode === 'teacher' ? 'game' : 'login')}
+              onBack={() => setScreen(mode === 'teacher' ? 'game' : 'win')}
             />
           </motion.div>
         )}
