@@ -146,7 +146,7 @@ export default function App() {
   const elapsedSeconds = (8 * 60) - timeLeft;
 
   return (
-    <div className="font-sans antialiased text-slate-900 bg-[#F8FAFF] min-h-screen">
+    <div className="font-sans antialiased">
       <AnimatePresence mode="wait">
         {screen === 'login' && (
           <motion.div key="login" exit={{ opacity: 0 }}>
@@ -155,7 +155,7 @@ export default function App() {
         )}
 
         {screen === 'game' && (
-          <motion.div key="game" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col min-h-screen bg-[#EEF2FF]">
+          <motion.div key="game" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="game-dark-bg flex flex-col min-h-screen" style={{ position: 'relative' }}>
             <GameHeader
               currentStage={currentStage}
               timeLeft={timeLeft}
@@ -163,7 +163,7 @@ export default function App() {
               onShowLeaderboard={mode === 'teacher' ? () => setScreen('leaderboard') : undefined}
               onShowReview={mode === 'teacher' ? () => setScreen('review') : undefined}
             />
-            <div className="p-3 md:p-5 w-full flex-1">
+            <div className="p-3 md:p-5 w-full flex-1" style={{ position: 'relative', zIndex: 1 }}>
               <QuizCard
                 question={questions[currentStage]}
                 stageNum={currentStage + 1}

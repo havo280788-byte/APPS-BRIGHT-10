@@ -1,8 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Slow gradient background animation */
+/* ══════════════════════════════════════════
+   AI FUTURISTIC THEME — GLOBAL STYLES
+   Synced with LoginScreen dark aesthetic
+══════════════════════════════════════════ */
+
+/* Root theme vars */
+:root {
+  --bg-deep: #020817;
+  --bg-dark: #0a0f2e;
+  --bg-mid: #0d1b4b;
+  --cyan: #00d4ff;
+  --purple: #8b5cf6;
+  --indigo: #6366f1;
+  --text-light: #e2e8f0;
+  --text-muted: rgba(148, 163, 184, 0.6);
+}
+
+body {
+  font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+}
+
+/* ── Game background (dark cosmic) ── */
+.game-dark-bg {
+  background: linear-gradient(160deg, #020817 0%, #080f2a 30%, #0c1640 55%, #0a0f2e 80%, #020817 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+.game-dark-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Grid overlay ── */
+.game-dark-bg::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Old animated gradient (login / kept for compat) ── */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -18,17 +71,17 @@
 }
 
 .animated-gradient-bg {
-  background: linear-gradient(135deg, #3B82F6, #6366F1, #8B5CF6, #6366F1, #3B82F6);
+  background: linear-gradient(135deg, #020817, #0a0f2e, #0d1b4b, #0a0f2e, #020817);
   background-size: 400% 400%;
   animation: gradientShift 30s ease infinite;
 }
 
-/* Active icon glow */
+/* ── Stage icon glow ── */
 .icon-glow {
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.7), 0 0 24px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.6), 0 0 24px rgba(0, 212, 255, 0.25);
 }
 
-/* Hide scrollbar but keep scroll functionality */
+/* ── Scrollbar: hide ── */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -38,35 +91,35 @@
   scrollbar-width: none;
 }
 
-/* Custom reading pane scrollbar */
+/* ── Reading pane scrollbar (dark) ── */
 .reading-scroll::-webkit-scrollbar {
   width: 4px;
 }
 
 .reading-scroll::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 4px;
 }
 
 .reading-scroll::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: rgba(0, 212, 255, 0.2);
   border-radius: 4px;
 }
 
 .reading-scroll::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: rgba(0, 212, 255, 0.4);
 }
 
-/* Teacher Mode: Evidence highlight */
+/* ── Teacher highlight ── */
 .teacher-highlight {
-  background-color: #FEF3C7;
-  border-bottom: 2px solid #F59E0B;
+  background-color: rgba(245, 158, 11, 0.22);
+  border-bottom: 2px solid rgba(245, 158, 11, 0.65);
   padding: 1px 2px;
   border-radius: 2px;
   transition: background-color 0.2s ease;
 }
 
-/* Teacher Mode badge glow */
+/* ── Teacher badge glow ── */
 .teacher-badge {
   box-shadow: 0 0 8px rgba(16, 185, 129, 0.4), 0 0 16px rgba(16, 185, 129, 0.15);
 }
