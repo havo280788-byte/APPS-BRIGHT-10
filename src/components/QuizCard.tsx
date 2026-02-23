@@ -197,7 +197,6 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                     .reading-scroll::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.4); }
                     .teacher-highlight {
                         background: rgba(255, 255, 0, 0.4);
-                        border-bottom: 2px solid #ffff00;
                         padding: 1px 2px; border-radius: 2px;
                     }
                 `}</style>
