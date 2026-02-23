@@ -196,8 +196,8 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                     .reading-scroll::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 4px; }
                     .reading-scroll::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.4); }
                     .teacher-highlight {
-                        background: rgba(245,158,11,0.25);
-                        border-bottom: 2px solid rgba(245,158,11,0.7);
+                        background: rgba(255, 255, 0, 0.4);
+                        border-bottom: 2px solid #ffff00;
                         padding: 1px 2px; border-radius: 2px;
                     }
                 `}</style>
@@ -222,10 +222,10 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                             {mode === 'teacher' && highlightMode && (
                                 <span style={{
                                     marginLeft: 'auto', fontSize: '9px', fontWeight: 700,
-                                    background: 'rgba(245,158,11,0.15)', color: '#fbbf24',
-                                    border: '1px solid rgba(245,158,11,0.3)', borderRadius: '999px', padding: '2px 8px',
+                                    background: 'rgba(255, 255, 0, 0.15)', color: '#ffff00',
+                                    border: '1px solid rgba(255, 255, 0, 0.3)', borderRadius: '999px', padding: '2px 8px',
                                     letterSpacing: '0.08em',
-                                }}>✏️ Highlight ON</span>
+                                }}>Highlighting...</span>
                             )}
                         </div>
 
@@ -273,19 +273,19 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
 
                             {/* Teacher toolbar */}
                             {mode === 'teacher' && (
-                                <div style={{ display: 'flex', gap: '4px' }}>
+                                <div style={{ display: 'flex', gap: '6px' }}>
                                     <button onClick={handleHighlightToggle} style={{
-                                        padding: '4px 8px', fontSize: '10px', fontWeight: 700, borderRadius: '6px', cursor: 'pointer',
+                                        padding: '5px 10px', fontSize: '10px', fontWeight: 700, borderRadius: '6px', cursor: 'pointer',
                                         fontFamily: 'inherit', border: '1px solid', transition: 'all 0.2s',
-                                        background: highlightMode ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.04)',
-                                        borderColor: highlightMode ? 'rgba(245,158,11,0.4)' : 'rgba(255,255,255,0.1)',
-                                        color: highlightMode ? '#fbbf24' : 'rgba(148,163,184,0.6)',
-                                    }}>✏️</button>
+                                        background: highlightMode ? 'rgba(255, 255, 0, 0.2)' : 'rgba(255,255,255,0.04)',
+                                        borderColor: highlightMode ? '#ffff00' : 'rgba(255,255,255,0.1)',
+                                        color: highlightMode ? '#ffff00' : 'rgba(148,163,184,0.6)',
+                                    }}>{highlightMode ? 'Highlight ON' : 'Highlight'}</button>
                                     <button onClick={handleClearHighlights} style={{
-                                        padding: '4px 8px', fontSize: '10px', fontWeight: 700, borderRadius: '6px', cursor: 'pointer',
+                                        padding: '5px 10px', fontSize: '10px', fontWeight: 700, borderRadius: '6px', cursor: 'pointer',
                                         fontFamily: 'inherit', border: '1px solid rgba(255,255,255,0.1)',
                                         background: 'rgba(255,255,255,0.04)', color: 'rgba(148,163,184,0.6)', transition: 'all 0.2s',
-                                    }}>🧹</button>
+                                    }}>Clear highlight</button>
                                 </div>
                             )}
                         </div>

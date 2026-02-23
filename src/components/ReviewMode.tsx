@@ -177,7 +177,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                                         <p
                                             key={i}
                                             className={`text-sm leading-relaxed mb-4 rounded-lg transition-all ${p.highlighted
-                                                ? 'bg-[#FEF3C7] border-l-4 border-[#F59E0B] pl-3 py-2 text-[#0F172A] font-medium'
+                                                ? 'bg-[#ffff00]/30 border-l-4 border-[#ffff00] pl-3 py-2 text-[#0F172A] font-medium'
                                                 : 'text-[#64748B]'
                                                 }`}
                                             style={{ lineHeight: '1.6' }}
