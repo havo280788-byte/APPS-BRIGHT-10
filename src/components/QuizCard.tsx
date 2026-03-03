@@ -107,9 +107,9 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
             return { ...base, background: 'rgba(99,102,241,0.15)', borderColor: 'rgba(99,102,241,0.55)', color: '#c4b5fd', boxShadow: '0 0 12px rgba(99,102,241,0.2)' };
         }
         if (hoveredOption === option && !feedback) {
-            return { ...base, background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(0,212,255,0.25)', color: '#e2e8f0' };
+            return { ...base, background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(0,212,255,0.25)', color: '#ffffff' };
         }
-        return { ...base, background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(203,213,225,0.8)' };
+        return { ...base, background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.92)' };
     };
 
     const getBadgeStyle = (option: string): React.CSSProperties => {
@@ -148,12 +148,12 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                     }
                     .ai-passage-text {
                         font-size: 13px;
-                        color: rgba(203,213,225,0.75);
+                        color: rgba(255,255,255,0.92);
                         line-height: 1.75;
                         margin: 0;
                     }
                     @media (min-width: 768px) {
-                        .ai-passage-text { font-size: 18px; }
+                        .ai-passage-text { font-size: 21px; }
                         .quiz-question-text { font-size: 22px !important; line-height: 1.5 !important; }
                         .quiz-option-btn { font-size: 17px !important; padding: 15px 18px !important; }
                         .quiz-option-label { font-size: 17px !important; }
