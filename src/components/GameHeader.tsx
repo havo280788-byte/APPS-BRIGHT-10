@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { STAGES } from '../utils/gameData';
 
@@ -20,6 +20,21 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
 
     const isLow = timeLeft <= 60;
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const toggleFullscreen = useCallback(() => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => { });
+        } else {
+            document.exitFullscreen().catch(() => { });
+        }
+    }, []);
+
+    useEffect(() => {
+        const onFSChange = () => setIsFullscreen(!!document.fullscreenElement);
+        document.addEventListener('fullscreenchange', onFSChange);
+        return () => document.removeEventListener('fullscreenchange', onFSChange);
+    }, []);
 
     useEffect(() => {
         if (containerRef.current) {
@@ -86,8 +101,55 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                     </div>
                 </div>
 
-                {/* Right: Timer or Teacher badge */}
+                {/* Right: Fullscreen + Timer or Teacher badge */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    {/* Fullscreen toggle button */}
+                    <button
+                        onClick={toggleFullscreen}
+                        title={isFullscreen ? 'Thu nhỏ (Esc)' : 'Toàn màn hình'}
+                        style={{
+                            width: '32px', height: '32px',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            background: 'rgba(255,255,255,0.05)',
+                            border: '1px solid rgba(0,212,255,0.2)',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            color: 'rgba(0,212,255,0.8)',
+                            fontSize: '15px',
+                            transition: 'all 0.2s',
+                            flexShrink: 0,
+                        }}
+                        onMouseEnter={e => {
+                            const el = e.currentTarget as HTMLButtonElement;
+                            el.style.background = 'rgba(0,212,255,0.12)';
+                            el.style.borderColor = 'rgba(0,212,255,0.5)';
+                            el.style.boxShadow = '0 0 10px rgba(0,212,255,0.2)';
+                        }}
+                        onMouseLeave={e => {
+                            const el = e.currentTarget as HTMLButtonElement;
+                            el.style.background = 'rgba(255,255,255,0.05)';
+                            el.style.borderColor = 'rgba(0,212,255,0.2)';
+                            el.style.boxShadow = 'none';
+                        }}
+                    >
+                        {isFullscreen ? (
+                            /* Compress icon */
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M8 3v3a2 2 0 0 1-2 2H3" />
+                                <path d="M21 8h-3a2 2 0 0 1-2-2V3" />
+                                <path d="M3 16h3a2 2 0 0 1 2 2v3" />
+                                <path d="M16 21v-3a2 2 0 0 1 2-2h3" />
+                            </svg>
+                        ) : (
+                            /* Expand icon */
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="15 3 21 3 21 9" />
+                                <polyline points="9 21 3 21 3 15" />
+                                <line x1="21" y1="3" x2="14" y2="10" />
+                                <line x1="3" y1="21" x2="10" y2="14" />
+                            </svg>
+                        )}
+                    </button>
                     {mode === 'student' ? (
                         <div style={{
                             display: 'flex', alignItems: 'center', gap: '6px',
