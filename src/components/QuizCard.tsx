@@ -153,7 +153,13 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                         margin: 0;
                     }
                     @media (min-width: 768px) {
-                        .ai-passage-text { font-size: 16px; }
+                        .ai-passage-text { font-size: 18px; }
+                        .quiz-question-text { font-size: 22px !important; line-height: 1.5 !important; }
+                        .quiz-option-btn { font-size: 17px !important; padding: 15px 18px !important; }
+                        .quiz-option-label { font-size: 17px !important; }
+                        .quiz-option-badge { width: 32px !important; height: 32px !important; font-size: 13px !important; }
+                        .ai-check-btn { font-size: 17px !important; padding: 16px !important; }
+                        .ai-continue-btn { font-size: 17px !important; padding: 16px !important; }
                     }
                     .ai-check-btn {
                         width: 100%; padding: 14px;
@@ -294,7 +300,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                             <h2 style={{
                                 fontSize: '15px', fontWeight: 700, color: '#e2e8f0',
                                 lineHeight: 1.55, margin: 0,
-                            }} className="md:text-lg">
+                            }} className="quiz-question-text">
                                 {question.question}
                             </h2>
 
@@ -314,13 +320,14 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                         onMouseEnter={() => setHoveredOption(option)}
                                         onMouseLeave={() => setHoveredOption(null)}
                                         style={getOptionStyle(option)}
+                                        className="quiz-option-btn"
                                         disabled={mode === 'student' && !!feedback}
                                     >
-                                        <span style={getBadgeStyle(option)}>
+                                        <span style={getBadgeStyle(option)} className="quiz-option-badge">
                                             {mode === 'teacher' && revealed && option === question.answer
                                                 ? '✓' : String.fromCharCode(65 + idx)}
                                         </span>
-                                        <span style={{ textAlign: 'left', lineHeight: 1.4, fontSize: 'inherit' }}>{option}</span>
+                                        <span className="quiz-option-label" style={{ textAlign: 'left', lineHeight: 1.4, fontSize: 'inherit' }}>{option}</span>
                                     </motion.button>
                                 ))}
                             </div>
