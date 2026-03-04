@@ -99,7 +99,7 @@ export const QUESTIONS: Question[] = [
             'They will completely replace teachers.',
             'They will disappear in the future.',
             'They will change our lives.',
-            'They will make everyone lazy.'
+            'They will be used only for education.'
         ],
         answer: 'They will change our lives.'
     },
