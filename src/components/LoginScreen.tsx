@@ -58,7 +58,8 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
       justifyContent: 'center',
       padding: '1.5rem',
       position: 'relative',
-      overflow: 'hidden',
+      overflowX: 'hidden',
+      overflowY: 'auto',
       fontFamily: "'Inter', sans-serif",
     }}>
       <style>{`
@@ -82,16 +83,24 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           background: radial-gradient(circle at center, transparent 0%, #000 80%);
         }
 
+        .content-container {
+          width: 100%;
+          max-width: 500px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          z-index: 1;
+        }
+
         .login-card {
           background: rgba(15, 15, 15, 0.95);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 20px;
           width: 100%;
-          maxWidth: 440px;
           padding: 40px 30px;
           position: relative;
-          z-index: 1;
           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
@@ -137,6 +146,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           font-size: 15px;
           transition: all 0.3s ease;
           outline: none;
+          box-sizing: border-box;
         }
 
         .input-field:focus {
@@ -193,113 +203,121 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
         .teacher-link:hover {
           color: #888;
         }
+
+        @media (max-width: 480px) {
+          .login-card {
+            padding: 30px 20px;
+          }
+        }
       `}</style>
 
       <div className="grid-bg" />
 
-      {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        style={{ textAlign: 'center', marginBottom: '40px', zIndex: 1 }}
-      >
-        <h3 style={{
-          color: '#ff3131',
-          fontSize: '16px',
-          fontWeight: 800,
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase',
-          margin: '0 0 12px 0',
-        }}>
-          VÌ MỘT MÔI TRƯỜNG KHÔNG KHÓI THUỐC
-        </h3>
-        
-        <h1 style={{
-          fontFamily: "'Orbitron', sans-serif",
-          fontSize: 'clamp(40px, 8vw, 64px)',
-          fontWeight: 900,
-          lineHeight: 1,
-          margin: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}>
-          <span style={{ color: '#fff' }}>ĐẤU TRƯỜNG</span>
-          <span style={{ color: '#ff3131', marginTop: '5px' }}>BẢN LĨNH</span>
-        </h1>
-
-        <p style={{
-          fontFamily: "'Orbitron', sans-serif",
-          color: '#fff',
-          fontSize: 'clamp(14px, 3vw, 20px)',
-          fontWeight: 600,
-          letterSpacing: '0.05em',
-          marginTop: '24px',
-          opacity: 0.9,
-        }}>
-          SẴN SÀNG QUÉT SẠCH LÀN KHÓI ẢO?
-        </p>
-      </motion.div>
-
-      {/* Login Card */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="login-card"
-      >
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label className="input-label">HỌ VÀ TÊN</label>
-            <div className="input-wrapper">
-              <span className="input-icon">👤</span>
-              <input
-                type="text"
-                className="input-field"
-                placeholder="Nhập họ và tên"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onFocus={() => setNameFocused(true)}
-                onBlur={() => setNameFocused(false)}
-              />
-            </div>
-          </div>
-
-          <div className="input-group">
-            <label className="input-label">LỚP</label>
-            <div className="input-wrapper">
-              <span className="input-icon">🏫</span>
-              <input
-                type="text"
-                className="input-field"
-                placeholder="VD: 12A1"
-                value={className}
-                onChange={(e) => setClassName(e.target.value)}
-                onFocus={() => setClassFocused(true)}
-                onBlur={() => setClassFocused(false)}
-              />
-            </div>
-          </div>
-
-          {error && (
-            <p style={{ color: '#ff4d4d', fontSize: '13px', textAlign: 'center', marginBottom: '16px' }}>
-              {error}
-            </p>
-          )}
-
-          <button type="submit" className="start-button">
-            VÀO TRẬN ĐẤU
-          </button>
-        </form>
-
-        <div 
-          className="teacher-link"
-          onClick={() => setShowPinDialog(true)}
+      <div className="content-container">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{ textAlign: 'center', marginBottom: '40px', width: '100%' }}
         >
-          Truy cập giáo viên
-        </div>
-      </motion.div>
+          <h3 style={{
+            color: '#ff3131',
+            fontSize: 'clamp(12px, 2vw, 14px)',
+            fontWeight: 800,
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            margin: '0 0 12px 0',
+          }}>
+            VÌ MỘT MÔI TRƯỜNG KHÔNG KHÓI THUỐC
+          </h3>
+          
+          <h1 style={{
+            fontFamily: "'Orbitron', sans-serif",
+            fontSize: 'clamp(32px, 6vw, 48px)',
+            fontWeight: 900,
+            lineHeight: 1.1,
+            margin: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}>
+            <span style={{ color: '#fff' }}>ĐẤU TRƯỜNG</span>
+            <span style={{ color: '#ff3131', marginTop: '5px' }}>BẢN LĨNH</span>
+          </h1>
+
+          <p style={{
+            fontFamily: "'Orbitron', sans-serif",
+            color: '#fff',
+            fontSize: 'clamp(12px, 2.5vw, 16px)',
+            fontWeight: 600,
+            letterSpacing: '0.05em',
+            marginTop: '20px',
+            opacity: 0.9,
+          }}>
+            SẴN SÀNG QUÉT SẠCH LÀN KHÓI ẢO?
+          </p>
+        </motion.div>
+
+        {/* Login Card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="login-card"
+        >
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <label className="input-label">HỌ VÀ TÊN</label>
+              <div className="input-wrapper">
+                <span className="input-icon">👤</span>
+                <input
+                  type="text"
+                  className="input-field"
+                  placeholder="Nhập họ và tên"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onFocus={() => setNameFocused(true)}
+                  onBlur={() => setNameFocused(false)}
+                />
+              </div>
+            </div>
+
+            <div className="input-group">
+              <label className="input-label">LỚP</label>
+              <div className="input-wrapper">
+                <span className="input-icon">🏫</span>
+                <input
+                  type="text"
+                  className="input-field"
+                  placeholder="VD: 12A1"
+                  value={className}
+                  onChange={(e) => setClassName(e.target.value)}
+                  onFocus={() => setClassFocused(true)}
+                  onBlur={() => setClassFocused(false)}
+                />
+              </div>
+            </div>
+
+            {error && (
+              <p style={{ color: '#ff4d4d', fontSize: '13px', textAlign: 'center', marginBottom: '16px' }}>
+                {error}
+              </p>
+            )}
+
+            <button type="submit" className="start-button">
+              BẮT ĐẦU HÀNH TRÌNH
+            </button>
+          </form>
+
+          <div 
+            className="teacher-link"
+            onClick={() => setShowPinDialog(true)}
+          >
+            GIÁO VIÊN
+          </div>
+        </motion.div>
+      </div>
 
       {/* PIN Dialog */}
       <AnimatePresence>
