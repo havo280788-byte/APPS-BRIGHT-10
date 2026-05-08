@@ -20,8 +20,8 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
 
     const getBadge = () => {
         if (accuracy >= 90) return { label: 'Digital Quest Champion', icon: '👑', from: '#f59e0b', to: '#d97706' };
-        if (accuracy >= 80) return { label: 'Quest Master', icon: '🏆', from: '#00d4ff', to: '#3b82f6' };
-        if (accuracy >= 60) return { label: 'Quest Explorer', icon: '🔭', from: '#a78bfa', to: '#7c3aed' };
+        if (accuracy >= 80) return { label: 'Quest Master', icon: '🏆', from: '#ff3131', to: '#cc0000' };
+        if (accuracy >= 60) return { label: 'Quest Explorer', icon: '🔭', from: '#ffffff', to: '#7c3aed' };
         return { label: 'Quest Starter', icon: '🌱', from: '#34d399', to: '#059669' };
     };
     const badge = getBadge();
@@ -42,12 +42,12 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
             <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
                 <svg width="100%" height="100%" style={{ opacity: 0.04 }}>
                     <defs><pattern id="gw" width="60" height="60" patternUnits="userSpaceOnUse">
-                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#00d4ff" strokeWidth="0.5" />
+                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ff3131" strokeWidth="0.5" />
                     </pattern></defs>
                     <rect width="100%" height="100%" fill="url(#gw)" />
                 </svg>
-                <div style={{ position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)', width: '700px', height: '400px', background: 'radial-gradient(ellipse,rgba(0,212,255,0.08) 0%,transparent 70%)' }} />
-                <div style={{ position: 'absolute', bottom: '-5%', left: '15%', width: '400px', height: '300px', background: 'radial-gradient(ellipse,rgba(139,92,246,0.07) 0%,transparent 70%)' }} />
+                <div style={{ position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)', width: '700px', height: '400px', background: 'radial-gradient(ellipse,rgba(255, 49, 49,0.08) 0%,transparent 70%)' }} />
+                <div style={{ position: 'absolute', bottom: '-5%', left: '15%', width: '400px', height: '300px', background: 'radial-gradient(ellipse,rgba(255, 255, 255,0.07) 0%,transparent 70%)' }} />
             </div>
 
             <motion.div
@@ -58,14 +58,14 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                     width: '100%', maxWidth: '440px', position: 'relative', zIndex: 1,
                     background: 'rgba(10,18,50,0.80)',
                     backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
-                    border: '1px solid rgba(0,212,255,0.15)',
+                    border: '1px solid rgba(255, 49, 49,0.15)',
                     borderRadius: '28px',
-                    boxShadow: '0 0 0 1px rgba(255,255,255,0.04) inset, 0 24px 80px rgba(0,0,0,0.55), 0 0 40px rgba(0,212,255,0.06)',
+                    boxShadow: '0 0 0 1px rgba(255,255,255,0.04) inset, 0 24px 80px rgba(0,0,0,0.55), 0 0 40px rgba(255, 49, 49,0.06)',
                     overflow: 'hidden', padding: '36px 28px 28px',
                 }}
             >
                 {/* Top shimmer */}
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg,transparent,rgba(0,212,255,0.6),rgba(139,92,246,0.5),transparent)' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg,transparent,rgba(255, 49, 49,0.6),rgba(255, 255, 255,0.5),transparent)' }} />
 
                 {/* Accuracy ring */}
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
@@ -78,8 +78,8 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                         <svg width="96" height="96" style={{ transform: 'rotate(-90deg)' }}>
                             <defs>
                                 <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#00d4ff" />
-                                    <stop offset="100%" stopColor="#8b5cf6" />
+                                    <stop offset="0%" stopColor="#ff3131" />
+                                    <stop offset="100%" stopColor="#ff4d4d" />
                                 </linearGradient>
                             </defs>
                             <circle cx="48" cy="48" r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="7" />
@@ -92,7 +92,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                         </svg>
                         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <span style={{ fontSize: '20px', fontWeight: 900, color: '#e2e8f0', lineHeight: 1 }}>{accuracy}%</span>
-                            <span style={{ fontSize: '9px', color: 'rgba(0,212,255,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '2px' }}>score</span>
+                            <span style={{ fontSize: '9px', color: 'rgba(255, 49, 49,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '2px' }}>score</span>
                         </div>
                     </motion.div>
                 </div>
@@ -100,19 +100,19 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                 {/* Title */}
                 <h1 style={{
                     textAlign: 'center', fontSize: '22px', fontWeight: 900, margin: 0,
-                    background: 'linear-gradient(135deg,#00d4ff 0%,#a78bfa 60%,#00d4ff 100%)',
+                    background: 'linear-gradient(135deg,#ff3131 0%,#ffffff 60%,#ff3131 100%)',
                     backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                     letterSpacing: '0.04em', textTransform: 'uppercase',
-                }}>Challenge Completed</h1>
+                }}>CHÚC MỪNG CHIẾN BINH ALPHA!</h1>
                 <p style={{ textAlign: 'center', fontSize: '13px', color: 'rgba(148,163,184,0.6)', marginTop: '6px', marginBottom: 0 }}>
-                    Well done, <span style={{ color: 'rgba(0,212,255,0.8)', fontWeight: 600 }}>{playerName}</span>
+                    Bạn đã phá đảo ma trận độc tố và làm chủ tương lai chính mình, <span style={{ color: 'rgba(255, 49, 49,0.8)', fontWeight: 600 }}>{playerName}</span>!
                 </p>
 
                 {/* Stats */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', margin: '22px 0' }}>
                     {[
-                        { label: 'Correct', value: `${score} / ${totalQuestions}`, accent: '#00d4ff' },
-                        { label: 'Time', value: formatTime(elapsedSeconds), accent: '#a78bfa' },
+                        { label: 'Correct', value: `${score} / ${totalQuestions}`, accent: '#ff3131' },
+                        { label: 'Time', value: formatTime(elapsedSeconds), accent: '#ffffff' },
                     ].map(({ label, value, accent }) => (
                         <div key={label} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '14px 12px', textAlign: 'center' }}>
                             <div style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148,163,184,0.5)', marginBottom: '6px' }}>{label}</div>
@@ -144,8 +144,8 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                             width: '100%', padding: '15px', border: 'none', borderRadius: '14px', color: 'white',
                             fontSize: '13px', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
                             cursor: 'pointer', fontFamily: 'inherit',
-                            background: 'linear-gradient(135deg,#00bcd4,#3b82f6,#8b5cf6)',
-                            boxShadow: '0 4px 24px rgba(0,188,212,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
+                            background: 'linear-gradient(135deg,#ff3131,#cc0000,#ff4d4d)',
+                            boxShadow: '0 4px 24px rgba(255, 49, 49,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
                         }}
                     >🏆 View Leaderboard</motion.button>
 
@@ -157,10 +157,10 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                             width: '100%', padding: '14px', borderRadius: '14px', color: 'rgba(203,213,225,0.85)',
                             fontSize: '13px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
                             cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s',
-                            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(0,212,255,0.25)',
+                            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255, 49, 49,0.25)',
                         }}
-                        onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(0,212,255,0.08)'; el.style.borderColor = 'rgba(0,212,255,0.45)'; el.style.boxShadow = '0 0 16px rgba(0,212,255,0.1)'; }}
-                        onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(0,212,255,0.25)'; el.style.boxShadow = 'none'; }}
+                        onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 49, 49,0.08)'; el.style.borderColor = 'rgba(255, 49, 49,0.45)'; el.style.boxShadow = '0 0 16px rgba(255, 49, 49,0.1)'; }}
+                        onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(255, 49, 49,0.25)'; el.style.boxShadow = 'none'; }}
                     >🔍 Review Answers</motion.button>
 
 

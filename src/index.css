@@ -13,9 +13,9 @@
   --bg-deep: #020817;
   --bg-dark: #0a0f2e;
   --bg-mid: #0d1b4b;
-  --cyan: #00d4ff;
-  --purple: #8b5cf6;
-  --indigo: #6366f1;
+  --cyan: #ff3131;
+  --purple: #ff4d4d;
+  --indigo: #cc0000;
   --text-light: #e2e8f0;
   --text-muted: rgba(148, 163, 184, 0.6);
 }
@@ -36,8 +36,8 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.07) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 50% 0%, rgba(255, 49, 49, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -48,8 +48,8 @@ body {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 49, 49, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 49, 49, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 0;
@@ -78,7 +78,7 @@ body {
 
 /* ── Stage icon glow ── */
 .icon-glow {
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.6), 0 0 24px rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 12px rgba(255, 49, 49, 0.6), 0 0 24px rgba(255, 49, 49, 0.25);
 }
 
 /* ── Scrollbar: hide ── */
@@ -102,12 +102,12 @@ body {
 }
 
 .reading-scroll::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.2);
+  background: rgba(255, 49, 49, 0.2);
   border-radius: 4px;
 }
 
 .reading-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 212, 255, 0.4);
+  background: rgba(255, 49, 49, 0.4);
 }
 
 /* ── Teacher highlight ── */

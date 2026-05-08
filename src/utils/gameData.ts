@@ -18,95 +18,128 @@ export const READING_PASSAGE = `⚡ 1. Vượt qua 10 chặng thử thách, phá
 🛡️ 2. Kích hoạt bản lĩnh thép, kiên quyết nói "KHÔNG" để làm chủ tương lai!`;
 
 export const STAGES: Stage[] = [
-    { id: 1, name: 'Launch', icon: '\u{1F680}' },
-    { id: 2, name: 'Explore', icon: '\u{1F30D}' },
-    { id: 3, name: 'Power-Up', icon: '\u{1F3AE}' },
-    { id: 4, name: 'Unlock', icon: '\u{1F9E9}' },
-    { id: 5, name: 'Focus Mode', icon: '\u{1F3AF}' },
-    { id: 6, name: 'Upgrade', icon: '\u{1F9E0}' },
-    { id: 7, name: 'Challenge', icon: '\u2696\uFE0F' },
-    { id: 8, name: 'Final Boss', icon: '\u{1F3C6}' },
+    { id: 1, name: 'Chặng 1', icon: '🚀' },
+    { id: 2, name: 'Chặng 2', icon: '🌍' },
+    { id: 3, name: 'Chặng 3', icon: '🎮' },
+    { id: 4, name: 'Chặng 4', icon: '🧩' },
+    { id: 5, name: 'Chặng 5', icon: '🎯' },
+    { id: 6, name: 'Chặng 6', icon: '🧠' },
+    { id: 7, name: 'Chặng 7', icon: '⚖️' },
+    { id: 8, name: 'Chặng 8', icon: '🏆' },
+    { id: 9, name: 'Chặng 9', icon: '🔥' },
+    { id: 10, name: 'Chặng 10', icon: '⭐' },
 ];
 
 export const QUESTIONS: Question[] = [
-    // Stage 1 - TFD (Doesn't say)
     {
         id: 'q1',
-        type: 'tfd',
-        question: 'The first apps appeared over 50 years ago.',
-        options: ['True', 'False', "Doesn't say"],
-        answer: "Doesn't say"
+        type: 'mcq',
+        question: 'Tỷ lệ học sinh 13–17 tuổi tại Việt Nam dùng thuốc lá điện tử đã tăng vọt lên mức bao nhiêu vào năm 2023?',
+        options: ['2,6%', '5,5%', '8,1%', '12,0%'],
+        answer: '8,1%'
     },
-    // Stage 2 - TFD (False)
     {
         id: 'q2',
-        type: 'tfd',
-        question: 'You can only use educational apps on smartphones.',
-        options: ['True', 'False', "Doesn't say"],
-        answer: 'False'
+        type: 'mcq',
+        question: 'Chọn phát biểu sai về 3 loại thuốc lá: truyền thống, điện tử và nung nóng.',
+        options: [
+            'Đều chứa các chất độc hại.',
+            'Đều chứa nguyên liệu thuốc lá tự nhiên.',
+            'Đều có mùi hương.',
+            'Đều sử dụng dụng cụ đi kèm.'
+        ],
+        answer: 'Đều chứa nguyên liệu thuốc lá tự nhiên.'
     },
-    // Stage 3 - MCQ
     {
         id: 'q3',
         type: 'mcq',
-        question: 'How do educational apps present information?',
+        question: 'Nhiều bạn trẻ lầm tưởng khói thuốc lá điện tử là "hơi nước sạch". Sự thật làn khói này là gì?',
         options: [
-            'In long academic texts',
-            'Through live video lessons',
-            'In bite-sized chunks',
-            'In printed worksheets'
+            'Hơi nước tinh khiết 100%.',
+            'Không khí có mùi trái cây.',
+            'Hỗn hợp "sol khí" chứa Nicotine và hóa chất độc hại.',
+            'Tinh dầu giúp làm sạch phổi.'
         ],
-        answer: 'In bite-sized chunks'
+        answer: 'Hỗn hợp "sol khí" chứa Nicotine và hóa chất độc hại.'
     },
-    // Stage 4 - TFD (True)
     {
         id: 'q4',
-        type: 'tfd',
-        question: 'Some apps already use augmented reality.',
-        options: ['True', 'False', "Doesn't say"],
-        answer: 'True'
+        type: 'mcq',
+        question: 'Nicotine trong thuốc lá thế hệ mới tấn công não bộ để gây nghiện chỉ sau bao nhiêu giây?',
+        options: ['3 giây.', '10 giây.', '30 giây.', '60 giây.'],
+        answer: '10 giây.'
     },
-    // Stage 5 - TFD (False)
     {
         id: 'q5',
-        type: 'tfd',
-        question: 'AR apps make lessons boring.',
-        options: ['True', 'False', "Doesn't say"],
-        answer: 'False'
+        type: 'mcq',
+        question: 'Hóa chất Formaldehyde trong khói thuốc gây ra tổn thương nguy hiểm nào sau đây?',
+        options: [
+            'Làm da bị khô.',
+            'Gây buồn ngủ nhẹ.',
+            'Đứt gãy cấu trúc ADN và hình thành khối u.',
+            'Chỉ làm vàng răng.'
+        ],
+        answer: 'Đứt gãy cấu trúc ADN và hình thành khối u.'
     },
-    // Stage 6 - TFD (False)
     {
         id: 'q6',
-        type: 'tfd',
-        question: 'Everyone believes apps will make us lazy.',
-        options: ['True', 'False', "Doesn't say"],
-        answer: 'False'
+        type: 'mcq',
+        question: 'Tại sao rác thải từ Pod dùng một lần lại gây "khủng hoảng mới" cho môi trường?',
+        options: [
+            'Vì chúng làm từ giấy dễ cháy.',
+            'Vì pin Lithium và vi mạch phát tán kim loại nặng kịch độc.',
+            'Vì chúng thu hút côn trùng.',
+            'Vì chúng quá nhẹ nên dễ bay mất.'
+        ],
+        answer: 'Vì pin Lithium và vi mạch phát tán kim loại nặng kịch độc.'
     },
-    // Stage 7 - MCQ
     {
         id: 'q7',
         type: 'mcq',
-        question: 'According to the text, what is certain about the apps of the future?',
+        question: 'Theo Nghị định 90/2026/NĐ-CP, hành vi nào sẽ bị xử phạt nặng từ 5 - 10 triệu đồng?',
         options: [
-            'They will completely replace teachers.',
-            'They will disappear in the future.',
-            'They will change our lives.',
-            'They will be used only for education.'
+            'Tìm hiểu về vape trên mạng.',
+            'Chứa chấp người khác sử dụng thuốc lá điện tử.',
+            'Mua kẹo ngọt có vị trái cây.',
+            'Đi ngang qua người đang hút vape.'
         ],
-        answer: 'They will change our lives.'
+        answer: 'Chứa chấp người khác sử dụng thuốc lá điện tử.'
     },
-    // Stage 8 - MCQ
     {
         id: 'q8',
         type: 'mcq',
-        question: 'The author\'s purpose is to …',
+        question: 'Địa điểm nào sau đây bị CẤM hút thuốc lá hoàn toàn theo quy định pháp luật?',
         options: [
-            'give us information about how apps are developing.',
-            'explain predictions about future technology in education.',
-            'inform us how to use the apps more efficiently.',
-            'give us tips on choosing apps.'
+            'Sân vận động mở.',
+            'Công viên rộng lớn.',
+            'Vỉa hè đường phố.',
+            'Trường học và các cơ sở y tế.'
         ],
-        answer: 'give us information about how apps are developing.'
+        answer: 'Trường học và các cơ sở y tế.'
+    },
+    {
+        id: 'q9',
+        type: 'mcq',
+        question: 'Khi bị bạn bè rủ rê thử "vape sành điệu", bước đầu tiên của kỹ năng từ chối là gì?',
+        options: [
+            'Nói "KHÔNG" dứt khoát, không mơ hồ.',
+            'Giải thích dài dòng về tác hại.',
+            'Thử một lần rồi mới từ chối.',
+            'Im lặng để bạn tự hiểu.'
+        ],
+        answer: 'Nói "KHÔNG" dứt khoát, không mơ hồ.'
+    },
+    {
+        id: 'q10',
+        type: 'mcq',
+        question: 'Tác hại thường gặp khi hút thuốc lá lâu dài là gì?',
+        options: [
+            'Cải thiện trí nhớ.',
+            'Gây nghiện nhẹ nhưng không ảnh hưởng sức khỏe.',
+            'Bệnh phổi tắc nghẽn mãn tính và ung thư phổi.',
+            'Giúp giảm cân an toàn.'
+        ],
+        answer: 'Bệnh phổi tắc nghẽn mãn tính và ung thư phổi.'
     }
 ];
 

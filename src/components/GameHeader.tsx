@@ -55,8 +55,8 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
         <div style={{
             width: '100%',
             background: 'linear-gradient(180deg, #020817 0%, #0a0f2e 60%, #0d1340 100%)',
-            borderBottom: '1px solid rgba(0,212,255,0.15)',
-            boxShadow: '0 4px 30px rgba(0,0,0,0.5), 0 0 40px rgba(0,212,255,0.05)',
+            borderBottom: '1px solid rgba(255, 49, 49,0.15)',
+            boxShadow: '0 4px 30px rgba(0,0,0,0.5), 0 0 40px rgba(255, 49, 49,0.05)',
             padding: '12px 20px 10px',
             display: 'flex',
             flexDirection: 'column',
@@ -67,7 +67,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
             {/* Top shimmer line */}
             <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
-                background: 'linear-gradient(90deg, transparent, rgba(0,212,255,0.5), rgba(139,92,246,0.5), transparent)',
+                background: 'linear-gradient(90deg, transparent, rgba(255, 49, 49,0.5), rgba(255, 255, 255,0.5), transparent)',
             }} />
 
             {/* Row 1: Title + Timer */}
@@ -76,11 +76,11 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{
                         width: '36px', height: '36px', borderRadius: '10px',
-                        background: 'linear-gradient(135deg, rgba(0,212,255,0.2), rgba(139,92,246,0.25))',
-                        border: '1px solid rgba(0,212,255,0.3)',
+                        background: 'linear-gradient(135deg, rgba(255, 49, 49,0.2), rgba(255, 255, 255,0.25))',
+                        border: '1px solid rgba(255, 49, 49,0.3)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: '18px',
-                        boxShadow: '0 0 12px rgba(0,212,255,0.2)',
+                        boxShadow: '0 0 12px rgba(255, 49, 49,0.2)',
                     }}>🧠</div>
                     <div>
                         <div style={{
@@ -89,15 +89,15 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                             fontFamily: "'Inter', sans-serif",
                         }}>
                             <span style={{
-                                background: 'linear-gradient(90deg, #00d4ff, #a78bfa)',
+                                background: 'linear-gradient(90deg, #ff3131, #ffffff)',
                                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                            }}>English 10</span>
-                            <span style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 400 }}> — New Ways to Learn</span>
+                            }}>ĐẤU TRƯỜNG</span>
+                            <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 800 }}> BẢN LĨNH</span>
                         </div>
                         <div style={{
-                            fontSize: '9px', color: 'rgba(0,212,255,0.6)', letterSpacing: '0.18em',
+                            fontSize: '9px', color: 'rgba(255, 49, 49,0.6)', letterSpacing: '0.18em',
                             textTransform: 'uppercase', fontWeight: 600,
-                        }}>◈ Reading Challenge</div>
+                        }}>◈ KHÔNG KHÓI THUỐC</div>
                     </div>
                 </div>
 
@@ -111,24 +111,24 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                             width: '32px', height: '32px',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             background: 'rgba(255,255,255,0.05)',
-                            border: '1px solid rgba(0,212,255,0.2)',
+                            border: '1px solid rgba(255, 49, 49,0.2)',
                             borderRadius: '8px',
                             cursor: 'pointer',
-                            color: 'rgba(0,212,255,0.8)',
+                            color: 'rgba(255, 49, 49,0.8)',
                             fontSize: '15px',
                             transition: 'all 0.2s',
                             flexShrink: 0,
                         }}
                         onMouseEnter={e => {
                             const el = e.currentTarget as HTMLButtonElement;
-                            el.style.background = 'rgba(0,212,255,0.12)';
-                            el.style.borderColor = 'rgba(0,212,255,0.5)';
-                            el.style.boxShadow = '0 0 10px rgba(0,212,255,0.2)';
+                            el.style.background = 'rgba(255, 49, 49,0.12)';
+                            el.style.borderColor = 'rgba(255, 49, 49,0.5)';
+                            el.style.boxShadow = '0 0 10px rgba(255, 49, 49,0.2)';
                         }}
                         onMouseLeave={e => {
                             const el = e.currentTarget as HTMLButtonElement;
                             el.style.background = 'rgba(255,255,255,0.05)';
-                            el.style.borderColor = 'rgba(0,212,255,0.2)';
+                            el.style.borderColor = 'rgba(255, 49, 49,0.2)';
                             el.style.boxShadow = 'none';
                         }}
                     >
@@ -153,11 +153,11 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                     {mode === 'student' ? (
                         <div style={{
                             display: 'flex', alignItems: 'center', gap: '6px',
-                            background: isLow ? 'rgba(239,68,68,0.15)' : 'rgba(0,212,255,0.08)',
-                            border: `1px solid ${isLow ? 'rgba(239,68,68,0.4)' : 'rgba(0,212,255,0.3)'}`,
+                            background: isLow ? 'rgba(239,68,68,0.15)' : 'rgba(255, 49, 49,0.08)',
+                            border: `1px solid ${isLow ? 'rgba(239,68,68,0.4)' : 'rgba(255, 49, 49,0.3)'}`,
                             borderRadius: '999px',
                             padding: '6px 14px',
-                            boxShadow: isLow ? '0 0 12px rgba(239,68,68,0.2)' : '0 0 12px rgba(0,212,255,0.1)',
+                            boxShadow: isLow ? '0 0 12px rgba(239,68,68,0.2)' : '0 0 12px rgba(255, 49, 49,0.1)',
                         }}>
                             <span style={{ fontSize: '13px' }}>⏱</span>
                             <span style={{
@@ -185,7 +185,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                         letterSpacing: '0.08em', textTransform: 'uppercase', transition: 'all 0.2s',
                                         fontFamily: 'inherit',
                                     }}
-                                        onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(139,92,246,0.15)'; (e.target as HTMLElement).style.color = '#a78bfa'; (e.target as HTMLElement).style.borderColor = 'rgba(139,92,246,0.3)'; }}
+                                        onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(255, 255, 255,0.15)'; (e.target as HTMLElement).style.color = '#ffffff'; (e.target as HTMLElement).style.borderColor = 'rgba(255, 255, 255,0.3)'; }}
                                         onMouseLeave={e => { (e.target as HTMLElement).style.background = 'rgba(255,255,255,0.05)'; (e.target as HTMLElement).style.color = 'rgba(148,163,184,0.8)'; (e.target as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; }}
                                     >Review</button>
                                 )}
@@ -197,7 +197,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                         letterSpacing: '0.08em', textTransform: 'uppercase', transition: 'all 0.2s',
                                         fontFamily: 'inherit',
                                     }}
-                                        onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(0,212,255,0.1)'; (e.target as HTMLElement).style.color = '#00d4ff'; (e.target as HTMLElement).style.borderColor = 'rgba(0,212,255,0.3)'; }}
+                                        onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(255, 49, 49,0.1)'; (e.target as HTMLElement).style.color = '#ff3131'; (e.target as HTMLElement).style.borderColor = 'rgba(255, 49, 49,0.3)'; }}
                                         onMouseLeave={e => { (e.target as HTMLElement).style.background = 'rgba(255,255,255,0.05)'; (e.target as HTMLElement).style.color = 'rgba(148,163,184,0.8)'; (e.target as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; }}
                                     >Leaderboard</button>
                                 )}
@@ -218,9 +218,9 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                 <motion.div
                     style={{
                         position: 'absolute', top: '50%', left: '0', height: '2px',
-                        background: 'linear-gradient(90deg, #00d4ff, #8b5cf6)',
+                        background: 'linear-gradient(90deg, #ff3131, #ff4d4d)',
                         transform: 'translateY(-50%)',
-                        boxShadow: '0 0 8px rgba(0,212,255,0.5)',
+                        boxShadow: '0 0 8px rgba(255, 49, 49,0.5)',
                     }}
                     initial={{ width: '0%' }}
                     animate={{ width: `${(currentStage / (STAGES.length - 1)) * 100}%` }}
@@ -256,22 +256,22 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                     fontSize: isActive ? '15px' : '13px',
                                     transition: 'all 0.3s ease',
                                     border: isActive
-                                        ? '2px solid rgba(0,212,255,0.8)'
+                                        ? '2px solid rgba(255, 49, 49,0.8)'
                                         : isCompleted
-                                            ? '2px solid rgba(0,212,255,0.3)'
+                                            ? '2px solid rgba(255, 49, 49,0.3)'
                                             : '2px solid rgba(255,255,255,0.1)',
                                     background: isActive
-                                        ? 'rgba(0,212,255,0.15)'
+                                        ? 'rgba(255, 49, 49,0.15)'
                                         : isCompleted
-                                            ? 'rgba(139,92,246,0.15)'
+                                            ? 'rgba(255, 255, 255,0.15)'
                                             : 'rgba(255,255,255,0.04)',
                                     boxShadow: isActive
-                                        ? '0 0 12px rgba(0,212,255,0.5), 0 0 24px rgba(0,212,255,0.2)'
+                                        ? '0 0 12px rgba(255, 49, 49,0.5), 0 0 24px rgba(255, 49, 49,0.2)'
                                         : 'none',
                                     opacity: isCompleted ? 0.85 : isActive ? 1 : 0.4,
                                 }}>
                                     {isCompleted ? (
-                                        <span style={{ fontSize: '11px', color: 'rgba(0,212,255,0.7)' }}>✓</span>
+                                        <span style={{ fontSize: '11px', color: 'rgba(255, 49, 49,0.7)' }}>✓</span>
                                     ) : (
                                         stage.icon
                                     )}

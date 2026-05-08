@@ -25,7 +25,7 @@ const cardStyle: React.CSSProperties = {
     background: 'rgba(10,18,50,0.7)',
     backdropFilter: 'blur(20px)',
     WebkitBackdropFilter: 'blur(20px)',
-    border: '1px solid rgba(0,212,255,0.12)',
+    border: '1px solid rgba(255, 49, 49,0.12)',
     borderRadius: '22px',
     boxShadow: '0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04) inset',
     overflow: 'hidden',
@@ -91,10 +91,10 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                     <p style={{ color: 'rgba(148,163,184,0.7)', fontSize: '14px', marginBottom: '24px' }}>No student submissions found yet.</p>
                     <button onClick={onBack} style={{
                         padding: '12px 24px',
-                        background: 'rgba(0,212,255,0.1)',
-                        border: '1px solid rgba(0,212,255,0.25)',
+                        background: 'rgba(255, 49, 49,0.1)',
+                        border: '1px solid rgba(255, 49, 49,0.25)',
                         borderRadius: '12px',
-                        color: '#00d4ff',
+                        color: '#ff3131',
                         fontWeight: 700,
                         cursor: 'pointer',
                         fontFamily: 'inherit',
@@ -179,7 +179,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
             <div style={{
                 background: 'rgba(2,8,23,0.6)',
                 backdropFilter: 'blur(16px)',
-                borderBottom: '1px solid rgba(0,212,255,0.08)',
+                borderBottom: '1px solid rgba(255, 49, 49,0.08)',
                 padding: '12px 20px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -190,7 +190,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span style={{ fontSize: '18px' }}>📖</span>
-                        <h1 style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(0,212,255,0.8)', margin: 0 }}>Review Mode</h1>
+                        <h1 style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255, 49, 49,0.8)', margin: 0 }}>Review Mode</h1>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <span style={{ fontSize: '11px', color: 'rgba(148,163,184,0.5)' }}>
@@ -210,7 +210,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                 {isTeacherView && studentEntries.length > 0 && (
                     <div style={{
                         background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(0,212,255,0.1)',
+                        border: '1px solid rgba(255, 49, 49,0.1)',
                         borderRadius: '10px', padding: '8px 12px',
                         display: 'flex', alignItems: 'center', gap: '8px',
                     }}>
@@ -254,14 +254,14 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                     <div className="review-left" style={{ width: '100%', flexShrink: 0 }}>
                         <div style={{ ...cardStyle, height: '100%' }}>
                             <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' }}>📖</div>
-                                <span style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(0,212,255,0.7)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Nhiệm vụ</span>
-                                <span style={{ marginLeft: 'auto', fontSize: '9px', fontWeight: 700, background: 'rgba(0,212,255,0.1)', color: '#00d4ff', border: '1px solid rgba(0,212,255,0.2)', borderRadius: '999px', padding: '2px 8px', letterSpacing: '0.08em' }}>
+                                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'rgba(255, 49, 49,0.1)', border: '1px solid rgba(255, 49, 49,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' }}>📖</div>
+                                <span style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.7)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Nhiệm vụ</span>
+                                <span style={{ marginLeft: 'auto', fontSize: '9px', fontWeight: 700, background: 'rgba(255, 49, 49,0.1)', color: '#ff3131', border: '1px solid rgba(255, 49, 49,0.2)', borderRadius: '999px', padding: '2px 8px', letterSpacing: '0.08em' }}>
                                     📍 Bằng chứng
                                 </span>
                             </div>
                             <div className="reading-scroll" style={{ padding: '16px', overflowY: 'auto', maxHeight: '60vh', flex: 1 }}>
-                                <h3 style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px', background: 'linear-gradient(90deg, #00d4ff, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                                <h3 style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px', background: 'linear-gradient(90deg, #ff3131, #ffffff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                                     Sứ mệnh của bạn
                                 </h3>
                                 {Array.isArray(highlightedParagraphs) ? (
@@ -290,9 +290,9 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <span style={{
                                         fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
-                                        background: 'linear-gradient(90deg, rgba(0,212,255,0.15), rgba(99,102,241,0.15))',
-                                        border: '1px solid rgba(0,212,255,0.3)',
-                                        borderRadius: '6px', padding: '3px 10px', color: '#00d4ff',
+                                        background: 'linear-gradient(90deg, rgba(255, 49, 49,0.15), rgba(255, 255, 255,0.15))',
+                                        border: '1px solid rgba(255, 49, 49,0.3)',
+                                        borderRadius: '6px', padding: '3px 10px', color: '#ff3131',
                                     }}>
                                         Stage {currentIndex + 1}
                                     </span>
@@ -359,13 +359,13 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                                             flex: 1, padding: '13px', border: 'none',
                                             background: currentIndex === activeAnswers.length - 1
                                                 ? 'rgba(255,255,255,0.04)'
-                                                : 'linear-gradient(135deg, #00bcd4, #3b82f6, #8b5cf6)',
+                                                : 'linear-gradient(135deg, #ff3131, #cc0000, #ff4d4d)',
                                             backgroundSize: '200% auto',
                                             borderRadius: '14px', color: currentIndex === activeAnswers.length - 1 ? 'rgba(148,163,184,0.3)' : 'white',
                                             fontWeight: 800, fontSize: '13px', letterSpacing: '0.1em',
                                             textTransform: 'uppercase', cursor: currentIndex === activeAnswers.length - 1 ? 'not-allowed' : 'pointer',
                                             fontFamily: 'inherit', transition: 'all 0.3s ease',
-                                            boxShadow: currentIndex === activeAnswers.length - 1 ? 'none' : '0 4px 20px rgba(0,188,212,0.3)',
+                                            boxShadow: currentIndex === activeAnswers.length - 1 ? 'none' : '0 4px 20px rgba(255, 49, 49,0.3)',
                                         }}
                                     >
                                         Next →

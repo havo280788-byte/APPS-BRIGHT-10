@@ -21,7 +21,7 @@ const card: React.CSSProperties = {
     background: 'rgba(10,18,50,0.75)',
     backdropFilter: 'blur(20px)',
     WebkitBackdropFilter: 'blur(20px)',
-    border: '1px solid rgba(0,212,255,0.12)',
+    border: '1px solid rgba(255, 49, 49,0.12)',
     borderRadius: '20px',
     boxShadow: '0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04) inset',
     overflow: 'hidden',
@@ -75,10 +75,10 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
 
     const analytics = useMemo(() => {
         if (data.length === 0) return null;
-        const done = data.filter(e => (e.score ?? 0) === (e.totalQuestions ?? 8));
+        const done = data.filter(e => (e.score ?? 0) === (e.totalQuestions ?? 10));
         const completionRate = Math.round((done.length / data.length) * 100);
-        const avgAccuracy = Math.round(data.reduce((s, e) => s + ((e.score ?? 0) / (e.totalQuestions ?? 8)) * 100, 0) / data.length);
-        const hi = data.filter(e => ((e.score ?? 0) / (e.totalQuestions ?? 8)) >= 0.8);
+        const avgAccuracy = Math.round(data.reduce((s, e) => s + ((e.score ?? 0) / (e.totalQuestions ?? 10)) * 100, 0) / data.length);
+        const hi = data.filter(e => ((e.score ?? 0) / (e.totalQuestions ?? 10)) >= 0.8);
         const fastestTime = hi.length > 0 ? Math.min(...hi.map(e => e.time)) : null;
         const qStats: { [k: string]: { correct: number; total: number } } = {};
         data.forEach(e => e.answers?.forEach(a => {
@@ -96,8 +96,8 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
     const skillsBreakdown = useMemo(() => {
         if (!analytics || analytics.questionRates.length === 0) return [];
         const skills = [
-            { name: 'Scanning', icon: '🔍', questions: ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'], color: '#00d4ff' },
-            { name: 'Identifying Main Idea', icon: '💡', questions: ['q8'], color: '#8b5cf6' },
+            { name: 'Scanning', icon: '🔍', questions: ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'], color: '#ff3131' },
+            { name: 'Identifying Main Idea', icon: '💡', questions: ['q8'], color: '#ff4d4d' },
             { name: 'Viewpoint', icon: '⚖️', questions: ['q7'], color: '#f59e0b' },
         ];
         return skills.map(skill => {
@@ -114,11 +114,11 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
         <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
             <svg width="100%" height="100%" style={{ opacity: 0.04 }}>
                 <defs><pattern id="glb" width="60" height="60" patternUnits="userSpaceOnUse">
-                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#00d4ff" strokeWidth="0.5" />
+                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ff3131" strokeWidth="0.5" />
                 </pattern></defs>
                 <rect width="100%" height="100%" fill="url(#glb)" />
             </svg>
-            <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse, rgba(0,212,255,0.07), transparent 70%)' }} />
+            <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse, rgba(255, 49, 49,0.07), transparent 70%)' }} />
         </div>
     );
 
@@ -141,10 +141,10 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                 <div style={{ ...card, marginBottom: '14px' }}>
                     <div style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                            <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(135deg,rgba(0,212,255,0.2),rgba(139,92,246,0.2))', border: '1px solid rgba(0,212,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', boxShadow: '0 0 16px rgba(0,212,255,0.2)' }}>🏆</div>
+                            <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(135deg,rgba(255, 49, 49,0.2),rgba(255, 255, 255,0.2))', border: '1px solid rgba(255, 49, 49,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', boxShadow: '0 0 16px rgba(255, 49, 49,0.2)' }}>🏆</div>
                             <div>
                                 <h1 style={{ fontSize: '16px', fontWeight: 900, color: 'white', letterSpacing: '0.06em', textTransform: 'uppercase', margin: 0 }}>Leaderboard</h1>
-                                <p style={{ fontSize: '10px', color: 'rgba(0,212,255,0.6)', letterSpacing: '0.12em', margin: 0 }}>◈ APPS READING CHALLENGE</p>
+                                <p style={{ fontSize: '10px', color: 'rgba(255, 49, 49,0.6)', letterSpacing: '0.12em', margin: 0 }}>◈ APPS READING CHALLENGE</p>
                             </div>
                         </div>
 
@@ -152,7 +152,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         {!playerName && (
                             <div style={{ display: 'flex', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '4px', gap: '4px' }}>
                                 {(['student', 'teacher'] as ViewMode[]).map(v => (
-                                    <button key={v} onClick={() => setViewMode(v)} style={{ padding: '6px 14px', borderRadius: '7px', cursor: 'pointer', fontFamily: 'inherit', fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'all 0.2s', border: 'none', background: viewMode === v ? 'linear-gradient(135deg,#00bcd4,#6366f1)' : 'transparent', color: viewMode === v ? 'white' : 'rgba(148,163,184,0.6)', boxShadow: viewMode === v ? '0 0 12px rgba(0,188,212,0.3)' : 'none' }}>
+                                    <button key={v} onClick={() => setViewMode(v)} style={{ padding: '6px 14px', borderRadius: '7px', cursor: 'pointer', fontFamily: 'inherit', fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'all 0.2s', border: 'none', background: viewMode === v ? 'linear-gradient(135deg,#ff3131,#cc0000)' : 'transparent', color: viewMode === v ? 'white' : 'rgba(148,163,184,0.6)', boxShadow: viewMode === v ? '0 0 12px rgba(255, 49, 49,0.3)' : 'none' }}>
                                         {v === 'student' ? '🎓 Student' : '👩‍🏫 Teacher'}
                                     </button>
                                 ))}
@@ -161,7 +161,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
 
                         {/* Back button always visible */}
                         <button onClick={onBack} style={{ padding: '8px 16px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', color: 'rgba(203,213,225,0.7)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s' }}
-                            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(0,212,255,0.08)'; el.style.borderColor = 'rgba(0,212,255,0.3)'; el.style.color = '#00d4ff'; }}
+                            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 49, 49,0.08)'; el.style.borderColor = 'rgba(255, 49, 49,0.3)'; el.style.color = '#ff3131'; }}
                             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(255,255,255,0.1)'; el.style.color = 'rgba(203,213,225,0.7)'; }}
                         >← Back</button>
                     </div>
@@ -193,8 +193,8 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                                             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                             padding: '12px 20px',
                                             borderBottom: index < top10.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
-                                            background: isMyRow ? 'rgba(0,212,255,0.06)' : isTop3 ? `rgba(${index === 0 ? '245,158,11' : index === 1 ? '148,163,184' : '217,119,6'},0.04)` : 'transparent',
-                                            boxShadow: isMyRow ? 'inset 0 0 0 1px rgba(0,212,255,0.22)' : 'none',
+                                            background: isMyRow ? 'rgba(255, 49, 49,0.06)' : isTop3 ? `rgba(${index === 0 ? '245,158,11' : index === 1 ? '148,163,184' : '217,119,6'},0.04)` : 'transparent',
+                                            boxShadow: isMyRow ? 'inset 0 0 0 1px rgba(255, 49, 49,0.22)' : 'none',
                                         }}
                                     >
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0 }}>
@@ -205,22 +205,22 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                                             {/* Name */}
                                             <div style={{ minWidth: 0 }}>
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-                                                    <span style={{ fontSize: '13px', fontWeight: 700, color: isMyRow ? '#00d4ff' : '#e2e8f0' }}>{entry.name}</span>
-                                                    {isMyRow && <span style={{ fontSize: '8px', fontWeight: 800, letterSpacing: '0.1em', background: 'rgba(0,212,255,0.12)', border: '1px solid rgba(0,212,255,0.3)', borderRadius: '999px', padding: '1px 6px', color: '#00d4ff', textTransform: 'uppercase' }}>YOU</span>}
+                                                    <span style={{ fontSize: '13px', fontWeight: 700, color: isMyRow ? '#ff3131' : '#e2e8f0' }}>{entry.name}</span>
+                                                    {isMyRow && <span style={{ fontSize: '8px', fontWeight: 800, letterSpacing: '0.1em', background: 'rgba(255, 49, 49,0.12)', border: '1px solid rgba(255, 49, 49,0.3)', borderRadius: '999px', padding: '1px 6px', color: '#ff3131', textTransform: 'uppercase' }}>YOU</span>}
                                                 </div>
                                                 <div style={{ fontSize: '10px', color: 'rgba(148,163,184,0.5)', marginTop: '1px' }}>{entry.class}</div>
                                             </div>
                                             {/* My Attempt button */}
                                             {isMyRow && onReview && (
-                                                <button onClick={onReview} style={{ marginLeft: 'auto', padding: '5px 10px', flexShrink: 0, background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)', borderRadius: '8px', color: '#a78bfa', fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em', cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
-                                                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(139,92,246,0.2)'; el.style.boxShadow = '0 0 10px rgba(139,92,246,0.2)'; }}
-                                                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(139,92,246,0.1)'; el.style.boxShadow = 'none'; }}
+                                                <button onClick={onReview} style={{ marginLeft: 'auto', padding: '5px 10px', flexShrink: 0, background: 'rgba(255, 255, 255,0.1)', border: '1px solid rgba(255, 255, 255,0.3)', borderRadius: '8px', color: '#ffffff', fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em', cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
+                                                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 255, 255,0.2)'; el.style.boxShadow = '0 0 10px rgba(255, 255, 255,0.2)'; }}
+                                                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 255, 255,0.1)'; el.style.boxShadow = 'none'; }}
                                                 >My Attempt →</button>
                                             )}
                                         </div>
 
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '28px', flexShrink: 0, marginLeft: '10px' }}>
-                                            <div style={{ width: '52px', textAlign: 'center', fontSize: '13px', fontWeight: 800, color: '#00d4ff' }}>{entry.score ?? '—'}/{entry.totalQuestions ?? 8}</div>
+                                            <div style={{ width: '52px', textAlign: 'center', fontSize: '13px', fontWeight: 800, color: '#ff3131' }}>{entry.score ?? '—'}/{entry.totalQuestions ?? 10}</div>
                                             <div style={{ width: '52px', textAlign: 'center', fontFamily: 'monospace', fontSize: '13px', fontWeight: 700, color: 'rgba(203,213,225,0.7)' }}>{formatTime(entry.time)}</div>
                                         </div>
                                     </motion.div>
@@ -244,13 +244,13 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         {/* Class Snapshot */}
                         <div style={card}>
                             <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(0,212,255,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📊 Class Snapshot</h2>
+                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📊 Class Snapshot</h2>
                             </div>
                             <div style={{ padding: '16px', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '10px' }}>
                                 {[
                                     { label: 'Teams Joined', value: analytics.totalTeams, color: '#e2e8f0' },
                                     { label: 'Completion', value: `${analytics.completionRate}%`, color: '#6ee7b7' },
-                                    { label: 'Avg Accuracy', value: `${analytics.avgAccuracy}%`, color: '#00d4ff' },
+                                    { label: 'Avg Accuracy', value: `${analytics.avgAccuracy}%`, color: '#ff3131' },
                                     { label: 'Fastest ≥80%', value: analytics.fastestTime !== null ? formatTime(analytics.fastestTime) : '—', color: '#fbbf24' },
                                 ].map(({ label, value, color }) => (
                                     <div key={label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '14px 10px', textAlign: 'center' }}>
@@ -264,7 +264,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         {/* Question Insights */}
                         <div style={card}>
                             <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(0,212,255,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📈 Question Insights</h2>
+                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📈 Question Insights</h2>
                                 {analytics.hardest.length > 0 && <span style={{ fontSize: '9px', fontWeight: 700, background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: '999px', padding: '2px 8px', color: '#f87171' }}>Hardest: {analytics.hardest.map(h => h.label).join(', ')}</span>}
                             </div>
                             <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -285,7 +285,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         {/* Skills Breakdown */}
                         <div style={card}>
                             <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(0,212,255,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>🧠 Skills Breakdown (Apps Reading)</h2>
+                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>🧠 Skills Breakdown (Apps Reading)</h2>
                             </div>
                             <div style={{ padding: '16px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '10px' }}>
                                 {skillsBreakdown.map(skill => (
