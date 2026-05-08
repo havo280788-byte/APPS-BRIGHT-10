@@ -222,7 +222,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px',
                             }}>📖</div>
                             <span style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(0,212,255,0.7)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
-                                Reading Passage
+                                Nhiệm vụ
                             </span>
                             {mode === 'teacher' && highlightMode && (
                                 <span style={{
@@ -245,7 +245,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                 textTransform: 'uppercase', marginBottom: '12px',
                                 background: 'linear-gradient(90deg, #00d4ff, #a78bfa)',
                                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                            }}>Apps of the Future</h3>
+                            }}>Sứ mệnh của bạn</h3>
                             {renderPassage()}
                         </div>
                     </div>

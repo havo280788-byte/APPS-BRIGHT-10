@@ -255,14 +255,14 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                         <div style={{ ...cardStyle, height: '100%' }}>
                             <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                 <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' }}>📖</div>
-                                <span style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(0,212,255,0.7)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Reading Passage</span>
+                                <span style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(0,212,255,0.7)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Nhiệm vụ</span>
                                 <span style={{ marginLeft: 'auto', fontSize: '9px', fontWeight: 700, background: 'rgba(0,212,255,0.1)', color: '#00d4ff', border: '1px solid rgba(0,212,255,0.2)', borderRadius: '999px', padding: '2px 8px', letterSpacing: '0.08em' }}>
-                                    📍 Evidence
+                                    📍 Bằng chứng
                                 </span>
                             </div>
                             <div className="reading-scroll" style={{ padding: '16px', overflowY: 'auto', maxHeight: '60vh', flex: 1 }}>
                                 <h3 style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px', background: 'linear-gradient(90deg, #00d4ff, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                                    Apps of the Future
+                                    Sứ mệnh của bạn
                                 </h3>
                                 {Array.isArray(highlightedParagraphs) ? (
                                     highlightedParagraphs.map((p, i) => (
