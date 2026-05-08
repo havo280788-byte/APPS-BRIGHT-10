@@ -244,6 +244,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                         return (
                             <motion.div
                                 key={stage.id}
+                                title={stage.name}
                                 style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10, margin: '0 2px' }}
                                 animate={{ scale: isActive ? 1.2 : 1 }}
                                 transition={{ type: 'spring', stiffness: 300 }}

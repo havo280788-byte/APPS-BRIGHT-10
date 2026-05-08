@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Question, READING_PASSAGE } from '../utils/gameData';
+import { Question, READING_PASSAGE, STAGES } from '../utils/gameData';
 
 interface QuizCardProps {
     question: Question;
@@ -269,7 +269,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                     borderRadius: '6px', padding: '3px 10px',
                                     color: '#ff3131',
                                 }}>
-                                    Stage {stageNum}
+                                    {STAGES[stageNum - 1]?.name?.toUpperCase() || `STAGE ${stageNum}`}
                                 </span>
                                 <span style={{ fontSize: '10px', color: 'rgba(148,163,184,0.4)', letterSpacing: '0.06em' }}>
                                     {question.type === 'mcq' ? 'Multiple Choice' : 'True / False / Doesn\'t Say'}
