@@ -60,12 +60,38 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
       position: 'relative',
       overflowX: 'hidden',
       overflowY: 'auto',
-      fontFamily: "'Inter', sans-serif",
+      fontFamily: "'Montserrat', sans-serif",
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700;800;900&display=swap');
 
-        .grid-bg {
+        .smoke-bg {
+          position: absolute;
+          inset: 0;
+          background-image: url('/smoke-bg.png');
+          background-size: cover;
+          background-position: center;
+          filter: blur(6px) brightness(0.6);
+          transform: scale(1.1);
+          pointer-events: none;
+          z-index: 0;
+          animation: subtleBreathe 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes subtleBreathe {
+          0% { transform: scale(1.1); filter: blur(6px) brightness(0.6); }
+          100% { transform: scale(1.15); filter: blur(8px) brightness(0.8); }
+        }
+
+        .smoke-overlay {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .grid-overlay {
           position: absolute;
           inset: 0;
           background-image: 
@@ -74,13 +100,6 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           background-size: 40px 40px;
           pointer-events: none;
           z-index: 0;
-        }
-
-        .grid-bg::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(circle at center, transparent 0%, #000 80%);
         }
 
         .content-container {
@@ -170,9 +189,9 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           border: none;
           border-radius: 12px;
           color: #fff;
-          font-family: 'Orbitron', sans-serif;
-          font-size: 14px;
-          font-weight: 800;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 18px;
+          font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
           cursor: pointer;
@@ -211,7 +230,9 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
         }
       `}</style>
 
-      <div className="grid-bg" />
+      <div className="smoke-bg" />
+      <div className="smoke-overlay" />
+      <div className="grid-overlay" />
 
       <div className="content-container">
         {/* Header Section */}
@@ -233,8 +254,8 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           </h3>
           
           <h1 style={{
-            fontFamily: "'Orbitron', sans-serif",
-            fontSize: 'clamp(32px, 6vw, 48px)',
+            fontFamily: "'Rajdhani', sans-serif",
+            fontSize: 'clamp(40px, 8vw, 64px)',
             fontWeight: 900,
             lineHeight: 1.1,
             margin: 0,
@@ -247,9 +268,9 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           </h1>
 
           <p style={{
-            fontFamily: "'Orbitron', sans-serif",
+            fontFamily: "'Rajdhani', sans-serif",
             color: '#fff',
-            fontSize: 'clamp(12px, 2.5vw, 16px)',
+            fontSize: 'clamp(14px, 3vw, 20px)',
             fontWeight: 600,
             letterSpacing: '0.05em',
             marginTop: '20px',
@@ -343,7 +364,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
               style={{ maxWidth: '320px' }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h3 style={{ color: '#fff', textAlign: 'center', marginBottom: '20px', fontFamily: 'Orbitron' }}>NHẬP MÃ PIN</h3>
+              <h3 style={{ color: '#fff', textAlign: 'center', marginBottom: '20px', fontFamily: 'Rajdhani' }}>NHẬP MÃ PIN</h3>
               <input
                 type="password"
                 className="input-field"
