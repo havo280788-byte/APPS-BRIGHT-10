@@ -18,16 +18,16 @@ export const READING_PASSAGE = `⚡ 1. Vượt qua 10 chặng thử thách, phá
 🛡️ 2. Kích hoạt bản lĩnh thép, kiên quyết nói "KHÔNG" để làm chủ tương lai!`;
 
 export const STAGES: Stage[] = [
-    { id: 1, name: 'Chặng 1', icon: '🚀' },
-    { id: 2, name: 'Chặng 2', icon: '🌍' },
-    { id: 3, name: 'Chặng 3', icon: '🎮' },
-    { id: 4, name: 'Chặng 4', icon: '🧩' },
-    { id: 5, name: 'Chặng 5', icon: '🎯' },
-    { id: 6, name: 'Chặng 6', icon: '🧠' },
-    { id: 7, name: 'Chặng 7', icon: '⚖️' },
-    { id: 8, name: 'Chặng 8', icon: '🏆' },
-    { id: 9, name: 'Chặng 9', icon: '🔥' },
-    { id: 10, name: 'Chặng 10', icon: '⭐' },
+    { id: 1, name: 'Diện mạo khói', icon: '🚬' },
+    { id: 2, name: 'Cạm bẫy hơi', icon: '🌬️' },
+    { id: 3, name: 'Ma trận độc', icon: '🧪' },
+    { id: 4, name: 'Xiềng xích Nicotine', icon: '⛓️' },
+    { id: 5, name: 'Vết sẹo sức khỏe', icon: '☣️' },
+    { id: 6, name: 'Nỗi đau lan tỏa', icon: '💔' },
+    { id: 7, name: 'Tội ác môi trường', icon: '🌍' },
+    { id: 8, name: 'Luật thép ngăn chặn', icon: '⚖️' },
+    { id: 9, name: 'Bản lĩnh đối diện', icon: '🛡️' },
+    { id: 10, name: 'Tương lai không thuốc lá', icon: '🚭' },
 ];
 
 export const QUESTIONS: Question[] = [
