@@ -150,22 +150,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                             </svg>
                         )}
                     </button>
-                    {mode === 'student' ? (
-                        <div style={{
-                            display: 'flex', alignItems: 'center', gap: '6px',
-                            background: isLow ? 'rgba(239,68,68,0.15)' : 'rgba(255, 49, 49,0.08)',
-                            border: `1px solid ${isLow ? 'rgba(239,68,68,0.4)' : 'rgba(255, 49, 49,0.3)'}`,
-                            borderRadius: '999px',
-                            padding: '6px 14px',
-                            boxShadow: isLow ? '0 0 12px rgba(239,68,68,0.2)' : '0 0 12px rgba(255, 49, 49,0.1)',
-                        }}>
-                            <span style={{ fontSize: '13px' }}>⏱</span>
-                            <span style={{
-                                fontFamily: 'monospace', fontSize: '16px', fontWeight: 700,
-                                color: isLow ? '#f87171' : '#e2e8f0', letterSpacing: '0.08em',
-                            }}>{formatTime(timeLeft)}</span>
-                        </div>
-                    ) : (
+                    {mode === 'student' ? null : (
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                             <div style={{
                                 display: 'flex', alignItems: 'center', gap: '6px',

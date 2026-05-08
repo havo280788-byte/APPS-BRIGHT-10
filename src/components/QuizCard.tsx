@@ -240,6 +240,9 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                             style={{ padding: '16px', overflowY: 'auto', maxHeight: '58vh', flex: 1, cursor: mode === 'teacher' && highlightMode ? 'text' : 'default' }}
                             onMouseUp={handleTextSelect}
                         >
+                            <div style={{ textAlign: 'center', marginBottom: '16px', marginTop: '8px' }}>
+                                <img src="/no-vape.png" alt="No Vaping" style={{ width: '140px', height: '140px', objectFit: 'contain', filter: 'drop-shadow(0 0 15px rgba(255, 49, 49, 0.4))' }} />
+                            </div>
                             <h3 style={{
                                 fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em',
                                 textTransform: 'uppercase', marginBottom: '12px',
@@ -271,9 +274,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                 }}>
                                     {STAGES[stageNum - 1]?.name?.toUpperCase() || `STAGE ${stageNum}`}
                                 </span>
-                                <span style={{ fontSize: '10px', color: 'rgba(148,163,184,0.4)', letterSpacing: '0.06em' }}>
-                                    {question.type === 'mcq' ? 'Multiple Choice' : 'True / False / Doesn\'t Say'}
-                                </span>
+
                             </div>
 
                             {/* Teacher toolbar */}
@@ -298,7 +299,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                         <div style={{ padding: '18px 18px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                             {/* Question Text */}
                             <h2 style={{
-                                fontSize: '15px', fontWeight: 700, color: '#e2e8f0',
+                                fontSize: '15px', fontWeight: 700, color: '#ff3131',
                                 lineHeight: 1.55, margin: 0,
                             }} className="quiz-question-text">
                                 {question.question}

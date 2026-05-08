@@ -31,26 +31,10 @@ export default function App() {
   const [mode, setMode] = useState<'student' | 'teacher'>('student');
   const timerRef = useRef<any>(null);
 
-  // Timer: only runs in student mode
+  // Timer disabled
   useEffect(() => {
-    if (screen === 'game' && timeLeft > 0 && mode === 'student') {
-      timerRef.current = setInterval(() => {
-        setTimeLeft(prev => {
-          if (prev <= 1) {
-            clearInterval(timerRef.current!);
-            setScreen('gameover');
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    } else {
-      if (timerRef.current) clearInterval(timerRef.current);
-    }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [screen, timeLeft, mode]);
+    // No timer logic needed
+  }, []);
 
   // Student start
   const handleStart = (name: string, className: string) => {
