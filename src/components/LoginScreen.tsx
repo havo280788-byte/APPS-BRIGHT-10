@@ -51,88 +51,124 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#000',
+      backgroundColor: '#050505',
       display: 'flex',
-      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '1.5rem',
+      padding: '2rem',
       position: 'relative',
-      overflowX: 'hidden',
-      overflowY: 'auto',
+      overflow: 'hidden',
       fontFamily: "'Montserrat', sans-serif",
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700;800;900&display=swap');
 
-        .smoke-bg {
+        .bg-glow {
+          position: absolute;
+          width: 60vw;
+          height: 60vw;
+          background: radial-gradient(circle, rgba(255,49,49,0.15) 0%, rgba(0,0,0,0) 70%);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        .main-container {
+          display: flex;
+          width: 100%;
+          max-width: 1100px;
+          height: 600px;
+          background: rgba(15, 15, 15, 0.6);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 30px;
+          overflow: hidden;
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 49, 49, 0.1);
+          z-index: 1;
+          position: relative;
+        }
+
+        .image-section {
+          flex: 1;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+          padding: 40px;
+        }
+
+        .image-section::before {
+          content: '';
           position: absolute;
           inset: 0;
-          background-image: url('/smoke-bg.png');
+          background-image: url('/hero-image.png');
           background-size: cover;
           background-position: center;
-          filter: blur(6px) brightness(0.6);
-          transform: scale(1.1);
-          pointer-events: none;
+          background-repeat: no-repeat;
+          transition: transform 10s ease;
           z-index: 0;
-          animation: subtleBreathe 10s infinite alternate ease-in-out;
         }
 
-        @keyframes subtleBreathe {
-          0% { transform: scale(1.1); filter: blur(6px) brightness(0.6); }
-          100% { transform: scale(1.15); filter: blur(8px) brightness(0.8); }
+        .main-container:hover .image-section::before {
+          transform: scale(1.05);
         }
 
-        .smoke-overlay {
+        .image-overlay {
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-          pointer-events: none;
-          z-index: 0;
-        }
-
-        .grid-overlay {
-          position: absolute;
-          inset: 0;
-          background-image: 
-            linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
-          background-size: 40px 40px;
-          pointer-events: none;
-          z-index: 0;
-        }
-
-        .content-container {
-          width: 100%;
-          max-width: 500px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: relative;
+          background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
           z-index: 1;
         }
 
-        .login-card {
-          background: rgba(15, 15, 15, 0.95);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          width: 100%;
-          padding: 40px 30px;
+        .image-content {
           position: relative;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+          z-index: 2;
         }
 
-        .login-card::before {
-          content: '';
-          position: absolute;
-          top: -1px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 80%;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, #ff3131, transparent);
-          box-shadow: 0 0 15px #ff3131;
+        .quote {
+          color: #fff;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 1.2;
+          text-transform: uppercase;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+          margin: 0;
+        }
+
+        .quote span {
+          color: #ff3131;
+        }
+
+        .form-section {
+          flex: 0 0 450px;
+          padding: 50px 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+          border-left: 1px solid rgba(255, 255, 255, 0.05);
+          position: relative;
+        }
+
+        .header-subtitle {
+          color: #ff3131;
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          margin: 0 0 8px 0;
+        }
+
+        .header-title {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 42px;
+          font-weight: 900;
+          line-height: 1.1;
+          color: #fff;
+          margin: 0 0 30px 0;
         }
 
         .input-group {
@@ -158,7 +194,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
         .input-field {
           width: 100%;
           background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 12px;
           padding: 14px 14px 14px 44px;
           color: #fff;
@@ -170,7 +206,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
 
         .input-field:focus {
           border-color: rgba(255, 49, 49, 0.5);
-          background: rgba(255, 49, 49, 0.02);
+          background: rgba(255, 49, 49, 0.03);
           box-shadow: 0 0 0 4px rgba(255, 49, 49, 0.1);
         }
 
@@ -178,14 +214,19 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           position: absolute;
           left: 14px;
           font-size: 18px;
-          opacity: 0.6;
-          filter: grayscale(1);
+          opacity: 0.5;
+          transition: opacity 0.3s;
+        }
+
+        .input-field:focus + .input-icon, 
+        .input-field:not(:placeholder-shown) + .input-icon {
+          opacity: 1;
         }
 
         .start-button {
           width: 100%;
           padding: 16px;
-          background: #ff3131;
+          background: linear-gradient(90deg, #ff3131, #d62828);
           border: none;
           border-radius: 12px;
           color: #fff;
@@ -198,12 +239,28 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
           transition: all 0.3s ease;
           box-shadow: 0 4px 15px rgba(255, 49, 49, 0.3);
           margin-top: 10px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .start-button::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transition: left 0.5s ease;
         }
 
         .start-button:hover {
-          background: #ff4d4d;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(255, 49, 49, 0.4);
+          box-shadow: 0 8px 25px rgba(255, 49, 49, 0.5);
+        }
+
+        .start-button:hover::after {
+          left: 100%;
         }
 
         .start-button:active {
@@ -213,132 +270,153 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
         .teacher-link {
           text-align: center;
           margin-top: 24px;
-          color: #555;
+          color: #666;
           font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.1em;
           cursor: pointer;
           transition: color 0.3s;
         }
 
         .teacher-link:hover {
-          color: #888;
+          color: #aaa;
         }
 
+        @media (max-width: 900px) {
+          .main-container {
+            flex-direction: column;
+            height: auto;
+            max-width: 500px;
+          }
+          .image-section {
+            height: 250px;
+            flex: none;
+            padding: 30px;
+          }
+          .quote {
+            font-size: 22px;
+          }
+          .form-section {
+            flex: none;
+            padding: 40px 30px;
+            border-left: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+          }
+        }
+          
         @media (max-width: 480px) {
-          .login-card {
+          .image-section {
+            height: 200px;
+          }
+          .form-section {
             padding: 30px 20px;
+          }
+          .header-title {
+            font-size: 32px;
           }
         }
       `}</style>
 
-      <div className="smoke-bg" />
-      <div className="smoke-overlay" />
-      <div className="grid-overlay" />
+      <div className="bg-glow" />
 
-      <div className="content-container">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{ textAlign: 'center', marginBottom: '40px', width: '100%' }}
-        >
-          <h3 style={{
-            color: '#ff3131',
-            fontSize: 'clamp(12px, 2vw, 14px)',
-            fontWeight: 800,
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            margin: '0 0 12px 0',
-          }}>
-            VÌ MỘT MÔI TRƯỜNG KHÔNG KHÓI THUỐC
-          </h3>
-          
-          <h1 style={{
-            fontFamily: "'Rajdhani', sans-serif",
-            fontSize: 'clamp(40px, 8vw, 64px)',
-            fontWeight: 900,
-            lineHeight: 1.1,
-            margin: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}>
-            <span style={{ color: '#fff' }}>ĐẤU TRƯỜNG</span>
-            <span style={{ color: '#ff3131', marginTop: '5px' }}>BẢN LĨNH</span>
-          </h1>
-
-          <p style={{
-            fontFamily: "'Rajdhani', sans-serif",
-            color: '#fff',
-            fontSize: 'clamp(14px, 3vw, 20px)',
-            fontWeight: 600,
-            letterSpacing: '0.05em',
-            marginTop: '20px',
-            opacity: 0.9,
-          }}>
-            SẴN SÀNG QUÉT SẠCH LÀN KHÓI ẢO?
-          </p>
-        </motion.div>
-
-        {/* Login Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="login-card"
-        >
-          <form onSubmit={handleSubmit}>
-            <div className="input-group">
-              <label className="input-label">HỌ VÀ TÊN</label>
-              <div className="input-wrapper">
-                <span className="input-icon">👤</span>
-                <input
-                  type="text"
-                  className="input-field"
-                  placeholder="Nhập họ và tên"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  onFocus={() => setNameFocused(true)}
-                  onBlur={() => setNameFocused(false)}
-                />
-              </div>
-            </div>
-
-            <div className="input-group">
-              <label className="input-label">LỚP</label>
-              <div className="input-wrapper">
-                <span className="input-icon">🏫</span>
-                <input
-                  type="text"
-                  className="input-field"
-                  placeholder="VD: 12A1"
-                  value={className}
-                  onChange={(e) => setClassName(e.target.value)}
-                  onFocus={() => setClassFocused(true)}
-                  onBlur={() => setClassFocused(false)}
-                />
-              </div>
-            </div>
-
-            {error && (
-              <p style={{ color: '#ff4d4d', fontSize: '13px', textAlign: 'center', marginBottom: '16px' }}>
-                {error}
-              </p>
-            )}
-
-            <button type="submit" className="start-button">
-              BẮT ĐẦU HÀNH TRÌNH
-            </button>
-          </form>
-
-          <div 
-            className="teacher-link"
-            onClick={() => setShowPinDialog(true)}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="main-container"
+      >
+        <div className="image-section">
+          <div className="image-overlay" />
+          <motion.div 
+            className="image-content"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
-            GIÁO VIÊN
-          </div>
-        </motion.div>
-      </div>
+            {/* Image section purely for aesthetics now, without extra messaging */}
+          </motion.div>
+        </div>
+
+        <div className="form-section">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <h3 className="header-subtitle">VÌ MỘT MÔI TRƯỜNG KHÔNG KHÓI THUỐC</h3>
+            <h1 className="header-title" style={{ marginBottom: '10px' }}>ĐẤU TRƯỜNG<br/><span style={{ color: '#ff3131' }}>BẢN LĨNH</span></h1>
+            <p style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              color: '#fff',
+              fontSize: '18px',
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              marginBottom: '30px',
+              opacity: 0.9,
+            }}>
+              SẴN SÀNG QUÉT SẠCH LÀN KHÓI ẢO?
+            </p>
+
+            <form onSubmit={handleSubmit}>
+              <div className="input-group">
+                <label className="input-label">HỌ VÀ TÊN</label>
+                <div className="input-wrapper">
+                  <span className="input-icon">👤</span>
+                  <input
+                    type="text"
+                    className="input-field"
+                    placeholder="Nhập họ và tên"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    onFocus={() => setNameFocused(true)}
+                    onBlur={() => setNameFocused(false)}
+                  />
+                </div>
+              </div>
+
+              <div className="input-group">
+                <label className="input-label">LỚP</label>
+                <div className="input-wrapper">
+                  <span className="input-icon">🏫</span>
+                  <input
+                    type="text"
+                    className="input-field"
+                    placeholder="VD: 12A1"
+                    value={className}
+                    onChange={(e) => setClassName(e.target.value)}
+                    onFocus={() => setClassFocused(true)}
+                    onBlur={() => setClassFocused(false)}
+                  />
+                </div>
+              </div>
+
+              <AnimatePresence>
+                {error && (
+                  <motion.p 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    style={{ color: '#ff4d4d', fontSize: '13px', textAlign: 'center', marginBottom: '16px', margin: '0 0 16px 0' }}
+                  >
+                    {error}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+
+              <button type="submit" className="start-button">
+                BẮT ĐẦU HÀNH TRÌNH
+              </button>
+            </form>
+
+            <div 
+              className="teacher-link"
+              onClick={() => setShowPinDialog(true)}
+            >
+              CHẾ ĐỘ GIÁO VIÊN
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
 
       {/* PIN Dialog */}
       <AnimatePresence>
@@ -349,42 +427,64 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
             exit={{ opacity: 0 }}
             style={{
               position: 'fixed', inset: 0,
-              background: 'rgba(0,0,0,0.9)',
-              backdropFilter: 'blur(10px)',
+              background: 'rgba(0,0,0,0.85)',
+              backdropFilter: 'blur(15px)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               zIndex: 100, padding: '1rem',
             }}
             onClick={() => { setShowPinDialog(false); setPin(''); setPinError(''); }}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="login-card"
-              style={{ maxWidth: '320px' }}
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              style={{ 
+                background: 'rgba(20, 20, 20, 0.9)', 
+                border: '1px solid rgba(255,255,255,0.1)',
+                padding: '40px 30px',
+                borderRadius: '24px',
+                boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                maxWidth: '360px',
+                width: '100%'
+              }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h3 style={{ color: '#fff', textAlign: 'center', marginBottom: '20px', fontFamily: 'Rajdhani' }}>NHẬP MÃ PIN</h3>
+              <h3 style={{ color: '#fff', textAlign: 'center', marginBottom: '8px', fontFamily: 'Rajdhani', fontSize: '24px' }}>TRUY CẬP HỆ THỐNG</h3>
+              <p style={{ color: '#888', textAlign: 'center', fontSize: '13px', marginBottom: '24px' }}>Vui lòng nhập mã PIN để tiếp tục</p>
+              
               <input
                 type="password"
                 className="input-field"
-                style={{ textAlign: 'center', letterSpacing: '0.5em', paddingLeft: '14px' }}
+                style={{ textAlign: 'center', letterSpacing: '0.5em', paddingLeft: '14px', fontSize: '20px', marginBottom: '10px' }}
                 value={pin}
                 onChange={(e) => setPin(e.target.value)}
                 onKeyDown={handlePinKeyDown}
                 autoFocus
                 placeholder="••••"
               />
-              {pinError && <p style={{ color: '#ff4d4d', fontSize: '12px', textAlign: 'center', marginTop: '10px' }}>{pinError}</p>}
-              <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+              
+              <AnimatePresence>
+                {pinError && (
+                  <motion.p 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    style={{ color: '#ff4d4d', fontSize: '13px', textAlign: 'center', margin: '0 0 10px 0' }}
+                  >
+                    {pinError}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+              
+              <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
                 <button 
                   className="start-button" 
-                  style={{ background: '#333', boxShadow: 'none' }}
+                  style={{ background: 'rgba(255,255,255,0.05)', color: '#aaa', margin: 0, boxShadow: 'none' }}
                   onClick={() => { setShowPinDialog(false); setPin(''); setPinError(''); }}
                 >
                   HỦY
                 </button>
-                <button className="start-button" onClick={handlePinSubmit}>XÁC NHẬN</button>
+                <button className="start-button" style={{ margin: 0 }} onClick={handlePinSubmit}>XÁC NHẬN</button>
               </div>
             </motion.div>
           </motion.div>
