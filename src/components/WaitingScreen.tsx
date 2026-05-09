@@ -20,12 +20,12 @@ export default function WaitingScreen() {
                 </motion.div>
 
                 <h1 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-                    Wait for the teacher!!!!
+                    Vui lòng đợi giáo viên!!!!
                 </h1>
 
                 <p className="text-white/70 text-base md:text-lg mb-10 leading-relaxed">
-                    Your answers have been submitted.<br />
-                    Please wait patiently for your teacher to review the results.
+                    Đáp án của bạn đã được gửi.<br />
+                    Xin vui lòng đợi giáo viên xem xét kết quả.
                 </p>
 
                 {/* Pulsing dots indicator */}

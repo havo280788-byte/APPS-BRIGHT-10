@@ -75,28 +75,28 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                 {/* Left: Logo + Title */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{
-                        width: '36px', height: '36px', borderRadius: '10px',
+                        width: '48px', height: '48px', borderRadius: '12px',
                         background: 'linear-gradient(135deg, rgba(255, 49, 49,0.2), rgba(255, 255, 255,0.25))',
                         border: '1px solid rgba(255, 49, 49,0.3)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '18px',
+                        fontSize: '24px',
                         boxShadow: '0 0 12px rgba(255, 49, 49,0.2)',
                     }}>🧠</div>
                     <div>
                         <div style={{
-                            fontSize: '13px', fontWeight: 800, color: 'white',
+                            fontSize: '20px', fontWeight: 900, color: 'white',
                             letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1.1,
-                            fontFamily: "'Inter', sans-serif",
+                            fontFamily: "'Montserrat', sans-serif",
                         }}>
                             <span style={{
                                 background: 'linear-gradient(90deg, #ff3131, #ffffff)',
                                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                             }}>ĐẤU TRƯỜNG</span>
-                            <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 800 }}> BẢN LĨNH</span>
+                            <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 900 }}> BẢN LĨNH</span>
                         </div>
                         <div style={{
-                            fontSize: '9px', color: 'rgba(255, 49, 49,0.6)', letterSpacing: '0.18em',
-                            textTransform: 'uppercase', fontWeight: 600,
+                            fontSize: '11px', color: 'rgba(255, 49, 49,0.7)', letterSpacing: '0.18em',
+                            textTransform: 'uppercase', fontWeight: 700,
                         }}>◈ KHÔNG KHÓI THUỐC</div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                 boxShadow: '0 0 12px rgba(16,185,129,0.15)',
                             }}>
                                 <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
-                                <span style={{ fontSize: '10px', fontWeight: 700, color: '#6ee7b7', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Teacher Mode</span>
+                                <span style={{ fontSize: '10px', fontWeight: 700, color: '#6ee7b7', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Chế độ Giáo viên</span>
                             </div>
                             <div className="hidden md:flex" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                                 {onShowReview && (
@@ -172,7 +172,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                     }}
                                         onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(255, 255, 255,0.15)'; (e.target as HTMLElement).style.color = '#ffffff'; (e.target as HTMLElement).style.borderColor = 'rgba(255, 255, 255,0.3)'; }}
                                         onMouseLeave={e => { (e.target as HTMLElement).style.background = 'rgba(255,255,255,0.05)'; (e.target as HTMLElement).style.color = 'rgba(148,163,184,0.8)'; (e.target as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; }}
-                                    >Review</button>
+                                    >Xem lại</button>
                                 )}
                                 {onShowLeaderboard && (
                                     <button onClick={onShowLeaderboard} style={{
@@ -184,7 +184,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                     }}
                                         onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(255, 49, 49,0.1)'; (e.target as HTMLElement).style.color = '#ff3131'; (e.target as HTMLElement).style.borderColor = 'rgba(255, 49, 49,0.3)'; }}
                                         onMouseLeave={e => { (e.target as HTMLElement).style.background = 'rgba(255,255,255,0.05)'; (e.target as HTMLElement).style.color = 'rgba(148,163,184,0.8)'; (e.target as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; }}
-                                    >Leaderboard</button>
+                                    >Bảng xếp hạng</button>
                                 )}
                             </div>
                         </div>

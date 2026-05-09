@@ -25,20 +25,20 @@ export default function GameOver({ score, totalQuestions, onRestart, onLeaderboa
 
                 <div className="text-6xl mb-4">😔</div>
                 <h1 className="text-2xl md:text-3xl font-black text-[#DC2626] mb-2 uppercase tracking-tight">
-                    Challenge Failed
+                    Thử thách Thất bại
                 </h1>
                 <p className="text-sm text-[#64748B] mb-6">
-                    Don't give up! Review the passage and try again.
+                    Đừng bỏ cuộc! Hãy xem lại đáp án và thử lại.
                 </p>
 
                 {/* Score summary */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
                     <div className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0]">
-                        <div className="text-[10px] text-[#94A3B8] uppercase font-bold tracking-wider mb-1">Score</div>
+                        <div className="text-[10px] text-[#94A3B8] uppercase font-bold tracking-wider mb-1">Điểm</div>
                         <div className="text-2xl font-black text-[#0F172A]">{score}/{totalQuestions}</div>
                     </div>
                     <div className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0]">
-                        <div className="text-[10px] text-[#94A3B8] uppercase font-bold tracking-wider mb-1">Accuracy</div>
+                        <div className="text-[10px] text-[#94A3B8] uppercase font-bold tracking-wider mb-1">Độ chính xác</div>
                         <div className="text-2xl font-black text-[#0F172A]">{accuracy}%</div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ export default function GameOver({ score, totalQuestions, onRestart, onLeaderboa
                         onClick={onRestart}
                         className="w-full py-3.5 bg-[#0F172A] text-white font-bold rounded-xl shadow-lg text-sm uppercase tracking-widest hover:bg-[#1E293B] transition-colors"
                     >
-                        🔄 Try Again
+                        🔄 Thử lại
                     </motion.button>
                     <motion.button
                         whileHover={{ scale: 1.02 }}
@@ -59,7 +59,7 @@ export default function GameOver({ score, totalQuestions, onRestart, onLeaderboa
                         onClick={onReview}
                         className="w-full py-3.5 bg-gradient-to-r from-[#cc0000] to-[#ff4d4d] text-white font-bold rounded-xl shadow-lg text-sm uppercase tracking-widest hover:from-[#2563EB] hover:to-[#7C3AED] transition-colors"
                     >
-                        📖 Review Answers
+                        📖 Xem lại đáp án
                     </motion.button>
                     <motion.button
                         whileHover={{ scale: 1.02 }}
@@ -67,7 +67,7 @@ export default function GameOver({ score, totalQuestions, onRestart, onLeaderboa
                         onClick={onLeaderboard}
                         className="w-full py-3.5 bg-[#F8FAFC] text-[#334155] font-bold rounded-xl text-sm uppercase tracking-widest border border-[#E2E8F0] hover:bg-[#F1F5F9] transition-colors"
                     >
-                        🏆 View Leaderboard
+                        🏆 Xem Bảng xếp hạng
                     </motion.button>
                 </div>
             </motion.div>

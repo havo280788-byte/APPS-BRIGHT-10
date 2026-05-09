@@ -19,10 +19,10 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
     const accuracy = Math.round((score / totalQuestions) * 100);
 
     const getBadge = () => {
-        if (accuracy >= 90) return { label: 'Digital Quest Champion', icon: '👑', from: '#f59e0b', to: '#d97706' };
-        if (accuracy >= 80) return { label: 'Quest Master', icon: '🏆', from: '#ff3131', to: '#cc0000' };
-        if (accuracy >= 60) return { label: 'Quest Explorer', icon: '🔭', from: '#ffffff', to: '#7c3aed' };
-        return { label: 'Quest Starter', icon: '🌱', from: '#34d399', to: '#059669' };
+        if (accuracy >= 90) return { label: 'Nhà vô địch Hành trình', icon: '👑', from: '#f59e0b', to: '#d97706' };
+        if (accuracy >= 80) return { label: 'Bậc thầy Hành trình', icon: '🏆', from: '#ff3131', to: '#cc0000' };
+        if (accuracy >= 60) return { label: 'Nhà thám hiểm', icon: '🔭', from: '#ffffff', to: '#7c3aed' };
+        return { label: 'Người khởi đầu', icon: '🌱', from: '#34d399', to: '#059669' };
     };
     const badge = getBadge();
 
@@ -92,7 +92,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                         </svg>
                         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <span style={{ fontSize: '20px', fontWeight: 900, color: '#e2e8f0', lineHeight: 1 }}>{accuracy}%</span>
-                            <span style={{ fontSize: '9px', color: 'rgba(255, 49, 49,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '2px' }}>score</span>
+                            <span style={{ fontSize: '9px', color: 'rgba(255, 49, 49,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '2px' }}>điểm</span>
                         </div>
                     </motion.div>
                 </div>
@@ -103,7 +103,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                     background: 'linear-gradient(135deg,#ff3131 0%,#ffffff 60%,#ff3131 100%)',
                     backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                     letterSpacing: '0.04em', textTransform: 'uppercase',
-                }}>CHÚC MỪNG CHIẾN BINH ALPHA!</h1>
+                }}>CHÚC MỪNG CHIẾN BINH BẢN LĨNH!</h1>
                 <p style={{ textAlign: 'center', fontSize: '13px', color: 'rgba(148,163,184,0.6)', marginTop: '6px', marginBottom: 0 }}>
                     Bạn đã phá đảo ma trận độc tố và làm chủ tương lai chính mình, <span style={{ color: 'rgba(255, 49, 49,0.8)', fontWeight: 600 }}>{playerName}</span>!
                 </p>
@@ -111,8 +111,8 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                 {/* Stats */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', margin: '22px 0' }}>
                     {[
-                        { label: 'Correct', value: `${score} / ${totalQuestions}`, accent: '#ff3131' },
-                        { label: 'Time', value: formatTime(elapsedSeconds), accent: '#ffffff' },
+                        { label: 'Chính xác', value: `${score} / ${totalQuestions}`, accent: '#ff3131' },
+                        { label: 'Thời gian', value: formatTime(elapsedSeconds), accent: '#ffffff' },
                     ].map(({ label, value, accent }) => (
                         <div key={label} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '14px 12px', textAlign: 'center' }}>
                             <div style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148,163,184,0.5)', marginBottom: '6px' }}>{label}</div>
@@ -129,7 +129,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                 }}>
                     <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: `linear-gradient(135deg,${badge.from}30,${badge.to}20)`, border: `1px solid ${badge.from}50`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>{badge.icon}</div>
                     <div>
-                        <div style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: badge.from, marginBottom: '3px' }}>Achievement Unlocked</div>
+                        <div style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: badge.from, marginBottom: '3px' }}>Thành tựu đạt được</div>
                         <div style={{ fontSize: '13px', fontWeight: 800, color: '#e2e8f0' }}>{badge.label}</div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                             background: 'linear-gradient(135deg,#ff3131,#cc0000,#ff4d4d)',
                             boxShadow: '0 4px 24px rgba(255, 49, 49,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
                         }}
-                    >🏆 View Leaderboard</motion.button>
+                    >🏆 Xem Bảng xếp hạng</motion.button>
 
                     {/* Secondary: Review */}
                     <motion.button
@@ -161,7 +161,7 @@ export default function GameWin({ playerName, score, totalQuestions, elapsedSeco
                         }}
                         onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 49, 49,0.08)'; el.style.borderColor = 'rgba(255, 49, 49,0.45)'; el.style.boxShadow = '0 0 16px rgba(255, 49, 49,0.1)'; }}
                         onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(255, 49, 49,0.25)'; el.style.boxShadow = 'none'; }}
-                    >🔍 Review Answers</motion.button>
+                    >🔍 Xem lại đáp án</motion.button>
 
 
                 </div>

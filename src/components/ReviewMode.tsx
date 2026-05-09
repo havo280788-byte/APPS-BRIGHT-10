@@ -76,7 +76,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
             <div className="min-h-screen game-dark-bg flex items-center justify-center">
                 <div className="text-white text-center relative z-10">
                     <div className="text-4xl mb-4 animate-pulse">⏳</div>
-                    <p className="text-sm text-[#94A3B8]">Loading student data...</p>
+                    <p className="text-sm text-[#94A3B8]">Đang tải dữ liệu học sinh...</p>
                 </div>
             </div>
         );
@@ -87,8 +87,8 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
             <div className="min-h-screen game-dark-bg flex items-center justify-center p-4">
                 <div style={{ ...cardStyle, maxWidth: '400px', padding: '32px', textAlign: 'center' }} className="relative z-10">
                     <div style={{ fontSize: '48px', marginBottom: '16px' }}>📭</div>
-                    <p style={{ color: '#e2e8f0', fontWeight: 700, marginBottom: '8px' }}>No answers to review.</p>
-                    <p style={{ color: 'rgba(148,163,184,0.7)', fontSize: '14px', marginBottom: '24px' }}>No student submissions found yet.</p>
+                    <p style={{ color: '#e2e8f0', fontWeight: 700, marginBottom: '8px' }}>Không có đáp án để xem lại.</p>
+                    <p style={{ color: 'rgba(148,163,184,0.7)', fontSize: '14px', marginBottom: '24px' }}>Chưa có bài nộp nào của học sinh.</p>
                     <button onClick={onBack} style={{
                         padding: '12px 24px',
                         background: 'rgba(255, 49, 49,0.1)',
@@ -100,7 +100,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                         fontFamily: 'inherit',
                         transition: 'all 0.2s',
                     }}>
-                        ← Back
+                        ← Quay lại
                     </button>
                 </div>
             </div>
@@ -190,18 +190,18 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span style={{ fontSize: '18px' }}>📖</span>
-                        <h1 style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255, 49, 49,0.8)', margin: 0 }}>Review Mode</h1>
+                        <h1 style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255, 49, 49,0.8)', margin: 0 }}>Chế độ Xem lại</h1>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <span style={{ fontSize: '11px', color: 'rgba(148,163,184,0.5)' }}>
-                            Question {currentIndex + 1} / {activeAnswers.length}
+                            Câu hỏi {currentIndex + 1} / {activeAnswers.length}
                         </span>
                         <button onClick={onBack} style={{
                             padding: '5px 12px', fontSize: '11px', fontWeight: 700, borderRadius: '8px',
                             background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)',
                             color: 'rgba(148,163,184,0.7)', cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s',
                         }}>
-                            ✕ Close
+                            ✕ Đóng
                         </button>
                     </div>
                 </div>
@@ -214,7 +214,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                         borderRadius: '10px', padding: '8px 12px',
                         display: 'flex', alignItems: 'center', gap: '8px',
                     }}>
-                        <span style={{ fontSize: '11px', color: 'rgba(148,163,184,0.6)', whiteSpace: 'nowrap' }}>👤 Student:</span>
+                        <span style={{ fontSize: '11px', color: 'rgba(148,163,184,0.6)', whiteSpace: 'nowrap' }}>👤 Học sinh:</span>
                         <select
                             value={selectedStudent}
                             onChange={(e) => { setSelectedStudent(Number(e.target.value)); setCurrentIndex(0); }}
@@ -294,10 +294,10 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                                         border: '1px solid rgba(255, 49, 49,0.3)',
                                         borderRadius: '6px', padding: '3px 10px', color: '#ff3131',
                                     }}>
-                                        Stage {currentIndex + 1}
+                                        Chặng {currentIndex + 1}
                                     </span>
                                     <span style={{ fontSize: '10px', color: 'rgba(148,163,184,0.4)', letterSpacing: '0.06em' }}>
-                                        {question?.type === 'mcq' ? 'Multiple Choice' : 'True / False / Doesn\'t Say'}
+                                        {question?.type === 'mcq' ? 'Trắc nghiệm' : 'Đúng / Sai / Không nhắc đến'}
                                     </span>
                                 </div>
                                 <span style={{
@@ -308,7 +308,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                                         : { background: 'rgba(239,68,68,0.12)', borderColor: 'rgba(239,68,68,0.4)', color: '#fca5a5' }
                                     )
                                 }}>
-                                    {answer.isCorrect ? '✓ Correct' : '✕ Incorrect'}
+                                    {answer.isCorrect ? '✓ Chính xác' : '✕ Chưa đúng'}
                                 </span>
                             </div>
 
@@ -350,7 +350,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                                             fontFamily: 'inherit', transition: 'all 0.2s',
                                         }}
                                     >
-                                        ← Previous
+                                        ← Trước đó
                                     </button>
                                     <button
                                         onClick={() => setCurrentIndex(prev => Math.min(activeAnswers.length - 1, prev + 1))}
@@ -368,7 +368,7 @@ export default function ReviewMode({ answers, questions, onBack }: ReviewModePro
                                             boxShadow: currentIndex === activeAnswers.length - 1 ? 'none' : '0 4px 20px rgba(255, 49, 49,0.3)',
                                         }}
                                     >
-                                        Next →
+                                        Tiếp theo →
                                     </button>
                                 </div>
                             </div>

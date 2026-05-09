@@ -93,20 +93,6 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
         return { completionRate, avgAccuracy, fastestTime, questionRates, hardest, totalTeams: data.length };
     }, [data]);
 
-    const skillsBreakdown = useMemo(() => {
-        if (!analytics || analytics.questionRates.length === 0) return [];
-        const skills = [
-            { name: 'Scanning', icon: '🔍', questions: ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'], color: '#ff3131' },
-            { name: 'Identifying Main Idea', icon: '💡', questions: ['q8'], color: '#ff4d4d' },
-            { name: 'Viewpoint', icon: '⚖️', questions: ['q7'], color: '#f59e0b' },
-        ];
-        return skills.map(skill => {
-            const rel = data.flatMap(e => (e.answers || []).filter(a => skill.questions.includes(a.questionId)));
-            const correct = rel.filter(a => a.isCorrect).length;
-            const total = rel.length;
-            return { ...skill, rate: total > 0 ? Math.round((correct / total) * 100) : 0, correct, total };
-        });
-    }, [data, analytics]);
 
     const rankColors = ['#f59e0b', '#94a3b8', '#d97706'];
 
@@ -127,7 +113,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
             {BG}
             <div style={{ textAlign: 'center', zIndex: 1 }}>
                 <div style={{ fontSize: '32px', marginBottom: '12px' }}>⏳</div>
-                <p style={{ fontSize: '13px', color: 'rgba(148,163,184,0.6)', letterSpacing: '0.08em' }}>Loading leaderboard…</p>
+                <p style={{ fontSize: '13px', color: 'rgba(148,163,184,0.6)', letterSpacing: '0.08em' }}>Đang tải bảng xếp hạng…</p>
             </div>
         </div>
     );
@@ -143,8 +129,8 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(135deg,rgba(255, 49, 49,0.2),rgba(255, 255, 255,0.2))', border: '1px solid rgba(255, 49, 49,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', boxShadow: '0 0 16px rgba(255, 49, 49,0.2)' }}>🏆</div>
                             <div>
-                                <h1 style={{ fontSize: '16px', fontWeight: 900, color: 'white', letterSpacing: '0.06em', textTransform: 'uppercase', margin: 0 }}>Leaderboard</h1>
-                                <p style={{ fontSize: '10px', color: 'rgba(255, 49, 49,0.6)', letterSpacing: '0.12em', margin: 0 }}>◈ APPS READING CHALLENGE</p>
+                                <h1 style={{ fontSize: '16px', fontWeight: 900, color: 'white', letterSpacing: '0.06em', textTransform: 'uppercase', margin: 0 }}>Bảng xếp hạng</h1>
+                                <p style={{ fontSize: '10px', color: 'rgba(255, 49, 49,0.6)', letterSpacing: '0.12em', margin: 0 }}>◈ HÀNH TRÌNH BẢN LĨNH</p>
                             </div>
                         </div>
 
@@ -153,7 +139,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                             <div style={{ display: 'flex', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '4px', gap: '4px' }}>
                                 {(['student', 'teacher'] as ViewMode[]).map(v => (
                                     <button key={v} onClick={() => setViewMode(v)} style={{ padding: '6px 14px', borderRadius: '7px', cursor: 'pointer', fontFamily: 'inherit', fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'all 0.2s', border: 'none', background: viewMode === v ? 'linear-gradient(135deg,#ff3131,#cc0000)' : 'transparent', color: viewMode === v ? 'white' : 'rgba(148,163,184,0.6)', boxShadow: viewMode === v ? '0 0 12px rgba(255, 49, 49,0.3)' : 'none' }}>
-                                        {v === 'student' ? '🎓 Student' : '👩‍🏫 Teacher'}
+                                        {v === 'student' ? '🎓 Học sinh' : '👩‍🏫 Giáo viên'}
                                     </button>
                                 ))}
                             </div>
@@ -163,7 +149,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         <button onClick={onBack} style={{ padding: '8px 16px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', color: 'rgba(203,213,225,0.7)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s' }}
                             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 49, 49,0.08)'; el.style.borderColor = 'rgba(255, 49, 49,0.3)'; el.style.color = '#ff3131'; }}
                             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(255,255,255,0.1)'; el.style.color = 'rgba(203,213,225,0.7)'; }}
-                        >← Back</button>
+                        >← Quay lại</button>
                     </div>
                 </div>
 
@@ -172,9 +158,9 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                     <div style={card}>
                         {/* Column headers */}
                         <div style={{ padding: '10px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <span style={{ fontSize: '9px', fontWeight: 700, color: 'rgba(148,163,184,0.4)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Rank & Student</span>
+                            <span style={{ fontSize: '9px', fontWeight: 700, color: 'rgba(148,163,184,0.4)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Hạng & Học sinh</span>
                             <div style={{ display: 'flex', gap: '28px' }}>
-                                {['Score', 'Time'].map(h => <span key={h} style={{ fontSize: '9px', fontWeight: 700, color: 'rgba(148,163,184,0.4)', letterSpacing: '0.14em', textTransform: 'uppercase', width: '52px', textAlign: 'center' }}>{h}</span>)}
+                                {['Điểm', 'TGian'].map(h => <span key={h} style={{ fontSize: '9px', fontWeight: 700, color: 'rgba(148,163,184,0.4)', letterSpacing: '0.14em', textTransform: 'uppercase', width: '52px', textAlign: 'center' }}>{h}</span>)}
                             </div>
                         </div>
 
@@ -206,7 +192,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                                             <div style={{ minWidth: 0 }}>
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
                                                     <span style={{ fontSize: '13px', fontWeight: 700, color: isMyRow ? '#ff3131' : '#e2e8f0' }}>{entry.name}</span>
-                                                    {isMyRow && <span style={{ fontSize: '8px', fontWeight: 800, letterSpacing: '0.1em', background: 'rgba(255, 49, 49,0.12)', border: '1px solid rgba(255, 49, 49,0.3)', borderRadius: '999px', padding: '1px 6px', color: '#ff3131', textTransform: 'uppercase' }}>YOU</span>}
+                                                    {isMyRow && <span style={{ fontSize: '8px', fontWeight: 800, letterSpacing: '0.1em', background: 'rgba(255, 49, 49,0.12)', border: '1px solid rgba(255, 49, 49,0.3)', borderRadius: '999px', padding: '1px 6px', color: '#ff3131', textTransform: 'uppercase' }}>BẠN</span>}
                                                 </div>
                                                 <div style={{ fontSize: '10px', color: 'rgba(148,163,184,0.5)', marginTop: '1px' }}>{entry.class}</div>
                                             </div>
@@ -215,7 +201,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                                                 <button onClick={onReview} style={{ marginLeft: 'auto', padding: '5px 10px', flexShrink: 0, background: 'rgba(255, 255, 255,0.1)', border: '1px solid rgba(255, 255, 255,0.3)', borderRadius: '8px', color: '#ffffff', fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em', cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
                                                     onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 255, 255,0.2)'; el.style.boxShadow = '0 0 10px rgba(255, 255, 255,0.2)'; }}
                                                     onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255, 255, 255,0.1)'; el.style.boxShadow = 'none'; }}
-                                                >My Attempt →</button>
+                                                >Bài làm của tôi →</button>
                                             )}
                                         </div>
 
@@ -227,13 +213,13 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                                 );
                             }) : (
                                 <div style={{ padding: '60px 20px', textAlign: 'center', color: 'rgba(148,163,184,0.4)', fontSize: '13px', fontStyle: 'italic' }}>
-                                    No entries yet. Be the first to complete the challenge!
+                                    Chưa có người chơi nào. Hãy là người đầu tiên hoàn thành thử thách!
                                 </div>
                             )}
                         </div>
 
                         <div style={{ padding: '12px 20px', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <span style={{ fontSize: '11px', color: 'rgba(148,163,184,0.4)' }}>{totalEntries} total entries</span>
+                            <span style={{ fontSize: '11px', color: 'rgba(148,163,184,0.4)' }}>Tổng cộng {totalEntries} người chơi</span>
                         </div>
                     </div>
                 )}
@@ -244,14 +230,14 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         {/* Class Snapshot */}
                         <div style={card}>
                             <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📊 Class Snapshot</h2>
+                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📊 TỔNG QUAN</h2>
                             </div>
                             <div style={{ padding: '16px', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '10px' }}>
                                 {[
-                                    { label: 'Teams Joined', value: analytics.totalTeams, color: '#e2e8f0' },
-                                    { label: 'Completion', value: `${analytics.completionRate}%`, color: '#6ee7b7' },
-                                    { label: 'Avg Accuracy', value: `${analytics.avgAccuracy}%`, color: '#ff3131' },
-                                    { label: 'Fastest ≥80%', value: analytics.fastestTime !== null ? formatTime(analytics.fastestTime) : '—', color: '#fbbf24' },
+                                    { label: 'Số người chơi', value: analytics.totalTeams, color: '#e2e8f0' },
+                                    { label: 'Hoàn thành', value: `${analytics.completionRate}%`, color: '#6ee7b7' },
+                                    { label: 'Tỉ lệ đúng', value: `${analytics.avgAccuracy}%`, color: '#ff3131' },
+                                    { label: 'Nhanh nhất ≥80%', value: analytics.fastestTime !== null ? formatTime(analytics.fastestTime) : '—', color: '#fbbf24' },
                                 ].map(({ label, value, color }) => (
                                     <div key={label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '14px 10px', textAlign: 'center' }}>
                                         <div style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(148,163,184,0.45)', marginBottom: '6px' }}>{label}</div>
@@ -264,8 +250,8 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                         {/* Question Insights */}
                         <div style={card}>
                             <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📈 Question Insights</h2>
-                                {analytics.hardest.length > 0 && <span style={{ fontSize: '9px', fontWeight: 700, background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: '999px', padding: '2px 8px', color: '#f87171' }}>Hardest: {analytics.hardest.map(h => h.label).join(', ')}</span>}
+                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>📈 PHÂN TÍCH CÂU HỎI</h2>
+                                {analytics.hardest.length > 0 && <span style={{ fontSize: '9px', fontWeight: 700, background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: '999px', padding: '2px 8px', color: '#f87171' }}>Khó nhất: {analytics.hardest.map(h => h.label).join(', ')}</span>}
                             </div>
                             <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                 {analytics.questionRates.map(q => (
@@ -282,39 +268,16 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
                             </div>
                         </div>
 
-                        {/* Skills Breakdown */}
-                        <div style={card}>
-                            <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                <h2 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase', margin: 0 }}>🧠 Skills Breakdown (Apps Reading)</h2>
-                            </div>
-                            <div style={{ padding: '16px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '10px' }}>
-                                {skillsBreakdown.map(skill => (
-                                    <div key={skill.name} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${skill.color}22`, borderRadius: '14px', padding: '14px' }}>
-                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                <span style={{ fontSize: '16px' }}>{skill.icon}</span>
-                                                <span style={{ fontSize: '11px', fontWeight: 700, color: '#e2e8f0' }}>{skill.name}</span>
-                                            </div>
-                                            <span style={{ fontSize: '15px', fontWeight: 900, color: skill.color }}>{skill.rate}%</span>
-                                        </div>
-                                        <div style={{ height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '999px', overflow: 'hidden' }}>
-                                            <motion.div initial={{ width: 0 }} animate={{ width: `${skill.rate}%` }} transition={{ duration: 0.8 }} style={{ height: '100%', borderRadius: '999px', background: skill.color, boxShadow: `0 0 8px ${skill.color}70` }} />
-                                        </div>
-                                        <div style={{ fontSize: '10px', color: 'rgba(148,163,184,0.4)', marginTop: '6px' }}>{skill.correct}/{skill.total} correct</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
 
                         {/* Teacher footer */}
                         <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', paddingBottom: '8px' }}>
                             {!resetConfirm ? (
-                                <button onClick={() => setResetConfirm(true)} style={{ padding: '10px 22px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: '12px', color: '#f87171', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>🗑 Reset Data</button>
+                                <button onClick={() => setResetConfirm(true)} style={{ padding: '10px 22px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: '12px', color: '#f87171', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit' }}>🗑 Xóa dữ liệu</button>
                             ) : (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '12px', padding: '8px 14px' }}>
-                                    <span style={{ fontSize: '11px', color: '#f87171', fontWeight: 700 }}>Are you sure?</span>
-                                    <button onClick={handleReset} style={{ padding: '5px 12px', background: 'rgba(239,68,68,0.2)', border: '1px solid rgba(239,68,68,0.4)', borderRadius: '8px', color: '#f87171', fontSize: '11px', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>Yes</button>
-                                    <button onClick={() => setResetConfirm(false)} style={{ padding: '5px 12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'rgba(148,163,184,0.7)', fontSize: '11px', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>Cancel</button>
+                                    <span style={{ fontSize: '11px', color: '#f87171', fontWeight: 700 }}>Bạn có chắc không?</span>
+                                    <button onClick={handleReset} style={{ padding: '5px 12px', background: 'rgba(239,68,68,0.2)', border: '1px solid rgba(239,68,68,0.4)', borderRadius: '8px', color: '#f87171', fontSize: '11px', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>Có</button>
+                                    <button onClick={() => setResetConfirm(false)} style={{ padding: '5px 12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'rgba(148,163,184,0.7)', fontSize: '11px', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>Hủy</button>
                                 </div>
                             )}
                         </div>
@@ -323,7 +286,7 @@ export default function Leaderboard({ onBack, onReview, playerName, playerClass 
 
                 {!playerName && viewMode === 'teacher' && !analytics && (
                     <div style={{ ...card, padding: '48px 24px', textAlign: 'center' }}>
-                        <p style={{ color: 'rgba(148,163,184,0.4)', fontSize: '13px', fontStyle: 'italic' }}>No data available yet for analytics.</p>
+                        <p style={{ color: 'rgba(148,163,184,0.4)', fontSize: '13px', fontStyle: 'italic' }}>Chưa có dữ liệu để phân tích.</p>
                     </div>
                 )}
             </motion.div>

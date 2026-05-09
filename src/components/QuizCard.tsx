@@ -14,8 +14,6 @@ interface QuizCardProps {
 export default function QuizCard({ question, stageNum, onAnswer, mode = 'student', onNextQuestion }: QuizCardProps) {
     const [selected, setSelected] = useState<string | null>(null);
     const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
-    const [highlightMode, setHighlightMode] = useState(false);
-    const [highlights, setHighlights] = useState<Array<{ text: string; start: number; end: number }>>([]);
     const [revealed, setRevealed] = useState(false);
     const [hoveredOption, setHoveredOption] = useState<string | null>(null);
 
@@ -33,45 +31,8 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
     };
 
     const handleReveal = () => setRevealed(true);
-    const handleHighlightToggle = () => setHighlightMode(prev => !prev);
-    const handleClearHighlights = () => setHighlights([]);
-
-    const handleTextSelect = useCallback(() => {
-        if (!highlightMode || mode !== 'teacher') return;
-        const selection = window.getSelection();
-        if (!selection || selection.isCollapsed) return;
-        const selectedText = selection.toString().trim();
-        if (selectedText.length > 0) {
-            setHighlights(prev => [...prev, { text: selectedText, start: 0, end: selectedText.length }]);
-            selection.removeAllRanges();
-        }
-    }, [highlightMode, mode]);
 
     const renderPassage = () => {
-        if (mode === 'teacher' && highlights.length > 0) {
-            const parts: Array<{ text: string; highlighted: boolean }> = [];
-            let remaining = READING_PASSAGE;
-            for (const h of highlights) {
-                const idx = remaining.indexOf(h.text);
-                if (idx !== -1) {
-                    if (idx > 0) parts.push({ text: remaining.substring(0, idx), highlighted: false });
-                    parts.push({ text: h.text, highlighted: true });
-                    remaining = remaining.substring(idx + h.text.length);
-                }
-            }
-            if (remaining.length > 0) parts.push({ text: remaining, highlighted: false });
-            if (parts.length > 0) {
-                return (
-                    <p className="ai-passage-text">
-                        {parts.map((part, i) => (
-                            <span key={i} className={part.highlighted ? 'teacher-highlight' : ''}>
-                                {part.text}
-                            </span>
-                        ))}
-                    </p>
-                );
-            }
-        }
         return <p className="ai-passage-text whitespace-pre-line">{READING_PASSAGE}</p>;
     };
 
@@ -201,10 +162,6 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                     .reading-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px; }
                     .reading-scroll::-webkit-scrollbar-thumb { background: rgba(255, 49, 49,0.2); border-radius: 4px; }
                     .reading-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 49, 49,0.4); }
-                    .teacher-highlight {
-                        background: rgba(255, 255, 0, 0.4);
-                        padding: 1px 2px; border-radius: 2px;
-                    }
                 `}</style>
 
                 {/* LEFT: Reading Passage */}
@@ -224,21 +181,12 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                             <span style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(255, 49, 49,0.7)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
                                 Nhiệm vụ
                             </span>
-                            {mode === 'teacher' && highlightMode && (
-                                <span style={{
-                                    marginLeft: 'auto', fontSize: '9px', fontWeight: 700,
-                                    background: 'rgba(255, 255, 0, 0.15)', color: '#ffff00',
-                                    border: '1px solid rgba(255, 255, 0, 0.3)', borderRadius: '999px', padding: '2px 8px',
-                                    letterSpacing: '0.08em',
-                                }}>Highlighting...</span>
-                            )}
                         </div>
 
                         {/* Passage Content */}
                         <div
                             className="reading-scroll"
-                            style={{ padding: '16px', overflowY: 'auto', maxHeight: '58vh', flex: 1, cursor: mode === 'teacher' && highlightMode ? 'text' : 'default' }}
-                            onMouseUp={handleTextSelect}
+                            style={{ padding: '16px', overflowY: 'auto', maxHeight: '58vh', flex: 1 }}
                         >
                             <div style={{ textAlign: 'center', marginBottom: '16px', marginTop: '8px' }}>
                                 <img src="/no-vape.png" alt="No Vaping" style={{ width: '140px', height: '140px', objectFit: 'contain', filter: 'drop-shadow(0 0 15px rgba(255, 49, 49, 0.4))' }} />
@@ -276,24 +224,6 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                 </span>
 
                             </div>
-
-                            {/* Teacher toolbar */}
-                            {mode === 'teacher' && (
-                                <div style={{ display: 'flex', gap: '6px' }}>
-                                    <button onClick={handleHighlightToggle} style={{
-                                        padding: '5px 10px', fontSize: '10px', fontWeight: 700, borderRadius: '6px', cursor: 'pointer',
-                                        fontFamily: 'inherit', border: '1px solid', transition: 'all 0.2s',
-                                        background: highlightMode ? 'rgba(255, 255, 0, 0.2)' : 'rgba(255,255,255,0.04)',
-                                        borderColor: highlightMode ? '#ffff00' : 'rgba(255,255,255,0.1)',
-                                        color: highlightMode ? '#ffff00' : 'rgba(148,163,184,0.6)',
-                                    }}>{highlightMode ? 'Highlight ON' : 'Highlight'}</button>
-                                    <button onClick={handleClearHighlights} style={{
-                                        padding: '5px 10px', fontSize: '10px', fontWeight: 700, borderRadius: '6px', cursor: 'pointer',
-                                        fontFamily: 'inherit', border: '1px solid rgba(255,255,255,0.1)',
-                                        background: 'rgba(255,255,255,0.04)', color: 'rgba(148,163,184,0.6)', transition: 'all 0.2s',
-                                    }}>Clear highlight</button>
-                                </div>
-                            )}
                         </div>
 
                         <div style={{ padding: '18px 18px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -417,7 +347,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                                 borderRadius: '12px', color: '#fbbf24',
                                                 fontWeight: 700, fontSize: '13px', letterSpacing: '0.08em',
                                                 textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s',
-                                            }}>👁 Reveal</button>
+                                            }}>👁 Hiện đáp án</button>
                                         ) : (
                                             <div style={{
                                                 flex: 1, padding: '12px',
@@ -433,7 +363,7 @@ export default function QuizCard({ question, stageNum, onAnswer, mode = 'student
                                             borderRadius: '12px', color: '#ffffff',
                                             fontWeight: 700, fontSize: '13px', letterSpacing: '0.08em',
                                             textTransform: 'uppercase', cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s',
-                                        }}>Next →</button>
+                                        }}>Tiếp theo →</button>
                                     </div>
                                 )}
                             </div>
