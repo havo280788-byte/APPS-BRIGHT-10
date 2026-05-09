@@ -235,11 +235,11 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                 transition={{ type: 'spring', stiffness: 300 }}
                             >
                                 <div style={{
-                                    width: isActive ? '34px' : '28px',
-                                    height: isActive ? '34px' : '28px',
+                                    width: isActive ? '42px' : '34px',
+                                    height: isActive ? '42px' : '34px',
                                     borderRadius: '50%',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontSize: isActive ? '15px' : '13px',
+                                    fontSize: isActive ? '20px' : '16px',
                                     transition: 'all 0.3s ease',
                                     border: isActive
                                         ? '2px solid rgba(255, 49, 49,0.8)'
@@ -257,7 +257,7 @@ export default function GameHeader({ currentStage, timeLeft, mode, onShowLeaderb
                                     opacity: isCompleted ? 0.85 : isActive ? 1 : 0.4,
                                 }}>
                                     {isCompleted ? (
-                                        <span style={{ fontSize: '11px', color: 'rgba(255, 49, 49,0.7)' }}>✓</span>
+                                        <span style={{ fontSize: '15px', color: 'rgba(255, 49, 49,0.7)', fontWeight: 'bold' }}>✓</span>
                                     ) : (
                                         stage.icon
                                     )}
