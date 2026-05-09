@@ -23,8 +23,8 @@ export const STAGES: Stage[] = [
     { id: 3, name: 'Ma trận độc', icon: '🧪' },
     { id: 4, name: 'Xiềng xích Nicotine', icon: '⛓️' },
     { id: 5, name: 'Vết sẹo sức khỏe', icon: '☣️' },
-    { id: 6, name: 'Nỗi đau lan tỏa', icon: '💔' },
-    { id: 7, name: 'Tội ác môi trường', icon: '🌍' },
+    { id: 6, name: 'Tội ác môi trường', icon: '🌍' },
+    { id: 7, name: 'Kỷ cương thép', icon: '🔨' },
     { id: 8, name: 'Luật thép ngăn chặn', icon: '⚖️' },
     { id: 9, name: 'Bản lĩnh đối diện', icon: '🛡️' },
     { id: 10, name: 'Tương lai không thuốc lá', icon: '🚭' },
@@ -41,33 +41,33 @@ export const QUESTIONS: Question[] = [
     {
         id: 'q2',
         type: 'mcq',
-        question: 'Chọn phát biểu sai về 3 loại thuốc lá: truyền thống, điện tử và nung nóng.',
+        question: 'Khác với việc đốt cháy lá thuốc, các thiết bị thuốc lá nung nóng (HTPs) hoạt động dựa trên cơ chế nào?',
         options: [
-            'Đều chứa các chất độc hại.',
-            'Đều chứa nguyên liệu thuốc lá tự nhiên.',
-            'Đều có mùi hương.',
-            'Đều sử dụng dụng cụ đi kèm.'
+            'Đốt cháy sợi thuốc ở 1000°C.',
+            'Nung nóng sợi thuốc ở nhiệt độ khoảng 350°C.',
+            'Chỉ sử dụng hơi nước sạch để tạo mùi.',
+            'Làm đông lạnh sợi thuốc để tạo khói.'
         ],
-        answer: 'Đều chứa nguyên liệu thuốc lá tự nhiên.'
+        answer: 'Nung nóng sợi thuốc ở nhiệt độ khoảng 350°C.'
     },
     {
         id: 'q3',
         type: 'mcq',
-        question: 'Nhiều bạn trẻ lầm tưởng khói thuốc lá điện tử là "hơi nước sạch". Sự thật làn khói này là gì?',
+        question: 'Bản chất thực sự của làn khói tỏa ra từ các thiết bị thuốc lá thế hệ mới (Vape, Pod) là gì?',
         options: [
-            'Hơi nước tinh khiết 100%.',
-            'Không khí có mùi trái cây.',
+            'Hơi nước tinh khiết không chứa hóa chất.',
+            'Không khí có mùi trái cây giúp tỉnh táo.',
             'Hỗn hợp "sol khí" chứa Nicotine và hóa chất độc hại.',
-            'Tinh dầu giúp làm sạch phổi.'
+            'Tinh dầu tự nhiên giúp làm sạch phổi.'
         ],
         answer: 'Hỗn hợp "sol khí" chứa Nicotine và hóa chất độc hại.'
     },
     {
         id: 'q4',
         type: 'mcq',
-        question: 'Nicotine trong thuốc lá thế hệ mới tấn công não bộ để gây nghiện chỉ sau bao nhiêu giây?',
-        options: ['3 giây.', '10 giây.', '30 giây.', '60 giây.'],
-        answer: '10 giây.'
+        question: 'Nicotine trong thuốc lá điện tử tấn công và "khóa chặt" các thụ thể não bộ để gây nghiện chỉ sau bao nhiêu giây?',
+        options: ['3 – 5 giây', '7 – 10 giây', '20 – 30 giây', '60 giây'],
+        answer: '7 – 10 giây'
     },
     {
         id: 'q5',
@@ -84,31 +84,19 @@ export const QUESTIONS: Question[] = [
     {
         id: 'q6',
         type: 'mcq',
-        question: 'Tại sao rác thải từ Pod dùng một lần lại gây "khủng hoảng mới" cho môi trường?',
+        question: 'Tại sao rác thải từ các thiết bị thuốc lá điện tử (đặc biệt là Pod) lại gây ô nhiễm nguồn nước vĩnh viễn?',
         options: [
-            'Vì chúng làm từ giấy dễ cháy.',
+            'Vì chúng có màu sắc sặc sỡ thu hút cá.',
             'Vì pin Lithium và vi mạch phát tán kim loại nặng kịch độc.',
-            'Vì chúng thu hút côn trùng.',
-            'Vì chúng quá nhẹ nên dễ bay mất.'
+            'Vì vỏ máy làm từ nhựa không tái chế.',
+            'Vì tinh dầu có chứa nhiều dầu thực vật.'
         ],
         answer: 'Vì pin Lithium và vi mạch phát tán kim loại nặng kịch độc.'
     },
     {
         id: 'q7',
         type: 'mcq',
-        question: 'Theo Nghị định 90/2026/NĐ-CP, hành vi nào sẽ bị xử phạt nặng từ 5 - 10 triệu đồng?',
-        options: [
-            'Tìm hiểu về vape trên mạng.',
-            'Chứa chấp người khác sử dụng thuốc lá điện tử.',
-            'Mua kẹo ngọt có vị trái cây.',
-            'Đi ngang qua người đang hút vape.'
-        ],
-        answer: 'Chứa chấp người khác sử dụng thuốc lá điện tử.'
-    },
-    {
-        id: 'q8',
-        type: 'mcq',
-        question: 'Địa điểm nào sau đây bị CẤM hút thuốc lá hoàn toàn theo quy định pháp luật?',
+        question: 'Theo Luật Phòng, chống tác hại của thuốc lá năm 2012, địa điểm nào sau đây bị CẤM hút thuốc lá hoàn toàn trong nhà và trong phạm vi khuôn viên?',
         options: [
             'Sân vận động mở.',
             'Công viên rộng lớn.',
@@ -118,28 +106,40 @@ export const QUESTIONS: Question[] = [
         answer: 'Trường học và các cơ sở y tế.'
     },
     {
+        id: 'q8',
+        type: 'mcq',
+        question: 'Theo quy định nghiêm minh tại Điều 26 về việc xử phạt thuốc lá thế hệ mới, biện pháp khắc phục hậu quả bắt buộc đối với hành vi sử dụng thuốc lá điện tử, thuốc lá nung nóng là gì?',
+        options: [
+            'Phạt lao động công ích tại địa phương.',
+            'Buộc tiêu hủy thuốc lá điện tử, thuốc lá nung nóng vi phạm.',
+            'Đình chỉ các hoạt động vui chơi, giải trí trong 01 tháng.',
+            'Tịch thu điện thoại và các thiết bị điện tử cá nhân của người vi phạm.'
+        ],
+        answer: 'Buộc tiêu hủy thuốc lá điện tử, thuốc lá nung nóng vi phạm.'
+    },
+    {
         id: 'q9',
         type: 'mcq',
-        question: 'Khi bị bạn bè rủ rê thử "vape sành điệu", bước đầu tiên của kỹ năng từ chối là gì?',
+        question: 'Đâu là nguyên tắc cốt lõi trong kỹ năng từ chối để thoát khỏi ma trận dụ dỗ của bạn bè?',
         options: [
-            'Nói "KHÔNG" dứt khoát, không mơ hồ.',
-            'Giải thích dài dòng về tác hại.',
-            'Thử một lần rồi mới từ chối.',
-            'Im lặng để bạn tự hiểu.'
+            'Nói "KHÔNG" dứt khoát, đưa ra lý do cá nhân và rời đi.',
+            'Cố gắng giải thích để bạn mình hiểu tác hại.',
+            'Thử một hơi để làm hài lòng bạn rồi mới từ chối.',
+            'Im lặng bỏ đi mà không nói lời nào.'
         ],
-        answer: 'Nói "KHÔNG" dứt khoát, không mơ hồ.'
+        answer: 'Nói "KHÔNG" dứt khoát, đưa ra lý do cá nhân và rời đi.'
     },
     {
         id: 'q10',
         type: 'mcq',
-        question: 'Tác hại thường gặp khi hút thuốc lá lâu dài là gì?',
+        question: 'Trong hành trình xây dựng bản lĩnh Alpha, tại sao việc quyết định "Nói KHÔNG" với thuốc lá lại là chiến thắng cao nhất của một người trẻ?',
         options: [
-            'Cải thiện trí nhớ.',
-            'Gây nghiện nhẹ nhưng không ảnh hưởng sức khỏe.',
-            'Bệnh phổi tắc nghẽn mãn tính và ung thư phổi.',
-            'Giúp giảm cân an toàn.'
+            'Vì giúp tiết kiệm được một khoản tài chính lớn.',
+            'Vì không còn lo lắng về các quy định xử phạt.',
+            'Vì đó là cách khẳng định giá trị bản thân, bảo vệ danh dự và không để làn khói điều khiển cuộc đời mình.',
+            'Vì giúp nhận được sự khen ngợi từ gia đình và nhà trường.'
         ],
-        answer: 'Bệnh phổi tắc nghẽn mãn tính và ung thư phổi.'
+        answer: 'Vì đó là cách khẳng định giá trị bản thân, bảo vệ danh dự và không để làn khói điều khiển cuộc đời mình.'
     }
 ];
 

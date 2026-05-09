@@ -61,7 +61,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
       fontFamily: "'Montserrat', sans-serif",
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700;800;900&display=swap');
 
         .bg-glow {
           position: absolute;
@@ -163,7 +163,7 @@ export default function LoginScreen({ onStart, onTeacherStart }: LoginScreenProp
         }
 
         .header-title {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Montserrat', sans-serif;
           font-size: 42px;
           font-weight: 900;
           line-height: 1.1;

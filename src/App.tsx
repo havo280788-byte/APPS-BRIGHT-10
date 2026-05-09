@@ -140,6 +140,12 @@ export default function App() {
 
         {screen === 'game' && (
           <motion.div key="game" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="game-dark-bg flex flex-col min-h-screen" style={{ position: 'relative' }}>
+            
+            {/* No Smoking/Vape Icon - Left Side */}
+            <div className="hidden lg:flex" style={{ position: 'absolute', left: '5%', top: '50%', transform: 'translateY(-50%)', zIndex: 0, opacity: 0.8, pointerEvents: 'none', width: '25vw', maxWidth: '350px', alignItems: 'center', justifyContent: 'center' }}>
+               <img src="/no-vape.png" alt="No Smoking" style={{ width: '100%', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 0 40px rgba(255,49,49,0.3))' }} />
+            </div>
+
             <GameHeader
               currentStage={currentStage}
               timeLeft={timeLeft}
